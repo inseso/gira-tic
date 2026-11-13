@@ -45,6 +45,14 @@
   .tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:9px;margin-left:6px;background:#fff4dc;color:var(--ambar);font-weight:600;vertical-align:middle}
   a{color:var(--verde)}
   .oculto{display:none}
+  #consent{position:fixed;inset:0;background:rgba(15,25,20,.6);z-index:20;display:flex;align-items:flex-end;justify-content:center}
+  #consent.oculto{display:none}
+  #consent .caja{background:#fff;max-width:640px;width:100%;border-radius:14px 14px 0 0;padding:20px 18px 24px;max-height:92vh;overflow:auto}
+  #consent h2{margin:0 0 8px;font-size:18px;color:var(--verde)}
+  #consent ul{padding-left:20px;margin:8px 0;font-size:14px;line-height:1.45}
+  #consent p{font-size:14px;line-height:1.45;margin:8px 0}
+  .importe{position:relative}.importe input{padding-right:60px;text-align:right;font-weight:600}
+  .importe span{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--gris);font-weight:600}
   #toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#1b1f1d;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;opacity:0;transition:opacity .3s;pointer-events:none;max-width:90%}
   #toast.ver{opacity:1}
 </style>
@@ -66,6 +74,7 @@
     <div class="card">
       <h2>1. Ubicación de la puerta principal</h2>
       <p style="margin:0;font-size:14px;color:var(--gris)">Sitúese delante de la puerta principal y pulse el botón. Espere a que la precisión sea de 10 m o mejor.</p>
+      <div id="permEstado" class="estado oculto"></div>
       <button type="button" class="btn" id="bGps">📍 Capturar ubicación</button>
       <div id="gpsEstado" class="estado oculto"></div>
       <div class="fila">
@@ -95,6 +104,9 @@
       <h2>3. Datos del encamado</h2>
       <label>Nombre completo del encamado *</label>
       <input id="nom" required placeholder="Tal como figura en su documento o expediente">
+      <label>Importe que cobra el encamado *</label>
+      <div class="importe"><input id="imp" required inputmode="numeric" placeholder="0"><span>XAF</span></div>
+      <div class="origen">Escriba solo la cifra, sin puntos ni espacios: se formatea sola.</div>
       <label class="chk"><input type="checkbox" id="tercero"> Cobra otra persona en su nombre</label>
       <div id="bloqueTercero" class="oculto">
         <label>Nombre completo de quien cobra *</label>
@@ -137,6 +149,20 @@
   </div>
 </section>
 </main>
+<div id="consent" class="oculto" role="dialog" aria-modal="true" aria-labelledby="cTit">
+  <div class="caja">
+    <h2 id="cTit">Permiso de acceso a la ubicación</h2>
+    <p>Esta aplicación necesita usar la ubicación (GPS) de este teléfono para registrar las coordenadas de la puerta principal del domicilio de cada encamado visitado.</p>
+    <ul>
+      <li>La ubicación solo se lee cuando usted pulsa <b>«Capturar ubicación»</b>. No se hace seguimiento de sus desplazamientos.</li>
+      <li>Las coordenadas se guardan en este teléfono junto con el registro de la visita y solo salen de él cuando usted exporta el Excel para la comisión.</li>
+      <li>Para identificar la localidad, las coordenadas se consultan en el servicio de mapas OpenStreetMap.</li>
+    </ul>
+    <p>Si acepta, el teléfono le mostrará a continuación su propio aviso de permiso: elija <b>«Permitir»</b>.</p>
+    <button class="btn" id="cSi">Acepto</button>
+    <button class="btn sec" id="cNo">No acepto</button>
+  </div>
+</div>
 <div id="toast"></div>
 
 <script>/*! xlsx.js (C) 2013-present SheetJS -- http://sheetjs.com */
@@ -151,7 +177,7 @@ break;case"<bookViews":;case"<bookViews>":;case"</bookViews>":break;case"<workbo
 </script>
 <script>
 "use strict";
-const CLAVE = "inseso_encamados_v1", CLAVE_TEC = "inseso_encamados_tecnico";
+const CLAVE = "inseso_encamados_v1", CLAVE_TEC = "inseso_encamados_tecnico", CLAVE_CONS = "inseso_encamados_consentimiento";
 const PREC_OBJ = 10;           // metros
 const PROVINCIAS = ["Bioko Norte","Bioko Sur","Annobón","Litoral","Centro Sur","Kié-Ntem","Wele-Nzas","Djibloho"];
 const $ = id => document.getElementById(id);
@@ -180,8 +206,33 @@ function verTab(t){
   scrollTo(0,0);
 }
 
+/* ---------- Consentimiento de ubicación ---------- */
+function leerConsent(){ try{ return JSON.parse(localStorage.getItem(CLAVE_CONS)); }catch(e){ return null; } }
+function guardarConsent(v){ try{ localStorage.setItem(CLAVE_CONS, JSON.stringify({acepta:v, fecha:new Date().toISOString()})); }catch(e){} }
+let trasConsent = null;
+function pedirConsent(despues){ trasConsent = despues || null; $("consent").classList.remove("oculto"); }
+$("cSi").onclick = () => {
+  guardarConsent(true); $("consent").classList.add("oculto");
+  // Provoca ya el aviso del sistema, mientras el técnico tiene presente la explicación
+  if("geolocation" in navigator && isSecureContext)
+    navigator.geolocation.getCurrentPosition(()=>{ pintarPermiso(); }, e=>{ pintarPermiso(); }, {enableHighAccuracy:true, timeout:20000, maximumAge:60000});
+  pintarPermiso();
+  if(trasConsent){ const f=trasConsent; trasConsent=null; f(); }
+};
+$("cNo").onclick = () => { guardarConsent(false); $("consent").classList.add("oculto"); trasConsent=null; pintarPermiso(); };
+async function pintarPermiso(){
+  const el = $("permEstado"), c = leerConsent();
+  let sis = "";
+  try{ if(navigator.permissions) sis = (await navigator.permissions.query({name:"geolocation"})).state; }catch(e){}
+  if(!c || !c.acepta){ el.classList.remove("oculto"); estado(el, 'No ha aceptado el acceso a la ubicación. Sin él no se pueden capturar las coordenadas. <a href="#" onclick="pedirConsent();return false">Revisar permiso</a>', "aviso"); return; }
+  if(sis==="denied"){ el.classList.remove("oculto"); estado(el, "El navegador tiene bloqueada la ubicación para esta página. Actívela en: menú del navegador → Configuración → Configuración de sitios → Ubicación → Permitir para esta página.", "mal"); return; }
+  el.classList.add("oculto");
+}
+
 /* ---------- GPS ---------- */
 $("bGps").onclick = () => {
+  const c = leerConsent();
+  if(!c || !c.acepta){ pedirConsent(()=>$("bGps").click()); return; }
   if(!("geolocation" in navigator)){ estado($("gpsEstado"),"Este navegador no permite usar el GPS.","mal"); return; }
   if(!isSecureContext){ estado($("gpsEstado"),"El GPS solo funciona si la página se abre desde una dirección https://. Avise al responsable de IT.","mal"); return; }
   pararGps(); mejor = null;
@@ -267,6 +318,11 @@ async function detectarPendientes(silencioso){
 }
 $("bPend").onclick = ()=>detectarPendientes(false);
 
+/* ---------- Importe en XAF ---------- */
+function fmtXAF(n){ return (n===""||n===null||isNaN(n)) ? "" : Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
+function leerXAF(s){ const d = String(s).replace(/[^0-9]/g,""); return d==="" ? null : parseInt(d,10); }
+$("imp").addEventListener("input", ()=>{ const n = leerXAF($("imp").value); $("imp").value = n===null ? "" : fmtXAF(n); });
+
 /* ---------- Tercero ---------- */
 $("tercero").onchange = ()=>{ $("bloqueTercero").classList.toggle("oculto", !$("tercero").checked); $("cobra").required = $("tercero").checked; };
 
@@ -277,9 +333,11 @@ $("f").onsubmit = ev => {
   const nom = $("nom").value.trim().replace(/\s+/g," ");
   const dup = registros.find(r => r.nombre.toLowerCase()===nom.toLowerCase() && r.id!==editando);
   if(dup && !confirmarDoble(dup)) return;
+  const imp = leerXAF($("imp").value);
+  if(imp===null){ toast("Falta el importe en XAF"); $("imp").focus(); return; }
   const tec = $("tec").value.trim(); try{ localStorage.setItem(CLAVE_TEC, tec); }catch(e){}
   const datos = {
-    nombre: nom,
+    nombre: nom, importe: imp,
     cobra: $("tercero").checked ? $("cobra").value.trim() : "",
     parentesco: $("tercero").checked ? $("par").value.trim() : "",
     lat: +$("lat").value, lon: +$("lon").value,
@@ -319,8 +377,9 @@ function pintarLista(){
   $("lista").innerHTML = registros.map((r,i)=>`
     <div class="reg">
       <b>${i+1}. ${esc(r.nombre)}${r.locOrigen==="pendiente"&&!r.localidad?'<span class="tag">localidad pendiente</span>':''}${r.precision>PREC_OBJ?'<span class="tag">± '+r.precision+' m</span>':''}</b>
+      <small>Cobra: ${r.importe!=null?fmtXAF(r.importe)+" XAF":"—"}</small>
       <small>${esc(r.localidad||"—")}${r.provincia?" · "+esc(r.provincia):""}</small>
-      ${r.cobra?`<small>Cobra: ${esc(r.cobra)}${r.parentesco?" ("+esc(r.parentesco)+")":""}</small>`:""}
+      ${r.cobra?`<small>Percibe en su nombre: ${esc(r.cobra)}${r.parentesco?" ("+esc(r.parentesco)+")":""}</small>`:""}
       <small>${r.lat}, ${r.lon} · ${new Date(r.fecha).toLocaleString("es-ES",{dateStyle:"short",timeStyle:"short"})}</small>
       <button class="btn sec peq" onclick="editar('${r.id}')">Editar</button>
       <a class="btn sec peq" style="text-decoration:none" href="${urlMapa(r.lat,r.lon)}" target="_blank" rel="noopener">Mapa ↗</a>
@@ -330,7 +389,7 @@ function pintarLista(){
 function editar(id){
   const r = registros.find(x=>x.id===id); if(!r) return;
   limpiar(); editando = id; verTab("nuevo");
-  $("nom").value=r.nombre; $("tercero").checked=!!r.cobra; $("tercero").onchange();
+  $("nom").value=r.nombre; $("imp").value=fmtXAF(r.importe??""); $("tercero").checked=!!r.cobra; $("tercero").onchange();
   $("cobra").value=r.cobra; $("par").value=r.parentesco; $("lat").value=r.lat; $("lon").value=r.lon;
   $("lat").dataset.prec=r.precision; $("lat").dataset.hora=r.horaGps;
   $("loc").value=r.localidad; locOrigen=r.locOrigen; $("prov").value=r.provincia; $("obs").value=r.observaciones; $("tec").value=r.tecnico;
@@ -349,13 +408,14 @@ $("bBorrarTodo").onclick = function(){
 /* ---------- Exportar a Excel (mismas columnas que la ficha) ---------- */
 $("bExcel").onclick = async () => {
   if(!registros.length){ toast("No hay registros"); return; }
-  const cab = ["Nº","Nombre completo del encamado","Nombre completo de quien cobra por él (si procede)","Latitud puerta principal","Longitud puerta principal","Localidad","Provincia","Ver en mapa","Parentesco de quien cobra","Fecha de visita","Observaciones","Precisión GPS (m)","Hora de captura GPS","Origen de la localidad","Técnico"];
-  const filas = registros.map((r,i)=>[i+1, r.nombre, r.cobra, r.lat, r.lon, r.localidad, r.provincia, urlMapa(r.lat,r.lon), r.parentesco, new Date(r.fecha), r.observaciones, r.precision, r.horaGps?new Date(r.horaGps):"", r.locOrigen, r.tecnico]);
+  const cab = ["Nº","Nombre completo del encamado","Importe que cobra (XAF)","Nombre completo de quien cobra por él (si procede)","Latitud puerta principal","Longitud puerta principal","Localidad","Provincia","Ver en mapa","Parentesco de quien cobra","Fecha de visita","Observaciones","Precisión GPS (m)","Hora de captura GPS","Origen de la localidad","Técnico"];
+  const filas = registros.map((r,i)=>[i+1, r.nombre, r.importe??"", r.cobra, r.lat, r.lon, r.localidad, r.provincia, urlMapa(r.lat,r.lon), r.parentesco, new Date(r.fecha), r.observaciones, r.precision, r.horaGps?new Date(r.horaGps):"", r.locOrigen, r.tecnico]);
   const ws = XLSX.utils.aoa_to_sheet([cab, ...filas], {cellDates:true});
-  filas.forEach((f,i)=>{ const c = XLSX.utils.encode_cell({r:i+1,c:7}); ws[c].l = {Target:f[7]};
-    ["D","E"].forEach(col=>{ const k=col+(i+2); if(ws[k]) ws[k].z="0.000000"; });
-    const fk="J"+(i+2); if(ws[fk]) ws[fk].z="dd/mm/yyyy hh:mm"; const hk="M"+(i+2); if(ws[hk]) ws[hk].z="dd/mm/yyyy hh:mm:ss"; });
-  ws["!cols"] = [6,30,30,14,14,22,14,40,18,18,30,10,20,16,22].map(w=>({wch:w}));
+  filas.forEach((f,i)=>{ const c = XLSX.utils.encode_cell({r:i+1,c:8}); ws[c].l = {Target:f[8]};
+    if(ws["C"+(i+2)] && typeof f[2]==="number") ws["C"+(i+2)].z='#,##0 "XAF"';
+    ["E","F"].forEach(col=>{ const k=col+(i+2); if(ws[k]) ws[k].z="0.000000"; });
+    const fk="K"+(i+2); if(ws[fk]) ws[fk].z="dd/mm/yyyy hh:mm"; const hk="N"+(i+2); if(ws[hk]) ws[hk].z="dd/mm/yyyy hh:mm:ss"; });
+  ws["!cols"] = [6,30,16,30,14,14,22,14,40,18,18,30,10,20,16,22].map(w=>({wch:w}));
   const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, "Registro de encamados");
   const tec = (registros[registros.length-1].tecnico||"tecnico").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^\w]+/g,"_");
   const nombre = `Encamados_${tec}_${new Date().toISOString().slice(0,10)}.xlsx`;
@@ -372,6 +432,7 @@ $("bExcel").onclick = async () => {
 /* ---------- Inicio ---------- */
 document.querySelector("#bGps")._orig = $("bGps").onclick;
 actualizarRed(); limpiar(); pintarCuenta();
+if(!leerConsent()) pedirConsent(); else pintarPermiso();
 if("serviceWorker" in navigator && location.protocol==="https:") navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
 </body>
