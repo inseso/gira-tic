@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Gira INSESO</title>
+<title>Gira TIC INSESO</title>
 <meta name="theme-color" content="#0b6b45">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -155,6 +155,12 @@ section.card>h3 .tag{font-size:11.5px;text-transform:uppercase;letter-spacing:.0
 .t.editing{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
 .t b{font-weight:600}.t small{display:block;color:var(--muted);font-size:13px}
 .t .btns{display:flex;gap:6px}
+.consrow{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,2fr) minmax(0,1fr) minmax(0,1fr) auto;gap:8px;align-items:end;margin-top:8px}
+.consbox{grid-column:1/-1;border:1px dashed var(--line);border-radius:var(--r);padding:10px 12px;background:var(--sunk)}
+.consbox b{font-size:14px}
+table.tb td .cons{display:block;font-size:13px;color:var(--muted)}
+table.tb td .cons b{color:var(--ink);font-weight:600}
+@media (max-width:760px){.consrow{grid-template-columns:1fr 1fr}}
 .geo{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:0 16px 14px;font-size:14px}
 .geo a{color:var(--accent);font-weight:600}
 .resp{font-size:13px;color:var(--muted);padding:0 2px}
@@ -215,7 +221,7 @@ h2.sec{font-size:18px;margin:22px 0 8px}
 </head>
 <body>
 <header class="top">
-  <div class="brand"><b>Gira de la Dirección del INSESO</b><span id="brandSub">Revisión de oficinas · técnica, administrativa e imagen</span></div>
+  <div class="brand"><b>Gira TIC · Servicio de Informática y Transformación Digital</b><span id="brandSub">Oficinas del INSESO</span></div>
   <span class="sync" id="sync"><i></i><span id="syncText">Guardado en el dispositivo</span></span>
 </header>
 <div class="banner info" id="updBanner" hidden><span><b>Hay una versión nueva de la app.</b> Actualice cuando no esté escribiendo.</span><button class="btn primary sm" type="button" id="updGo">Actualizar ahora</button></div>
@@ -259,6 +265,7 @@ h2.sec{font-size:18px;margin:22px 0 8px}
       <h2>Copias y envío</h2>
       <button class="btn" type="button" id="expJson">Exportar todo con fotos</button>
       <button class="btn" type="button" id="expCsv">Exportar para Excel</button>
+      <button class="btn" type="button" id="expInv">Exportar inventario y consumibles</button>
       <label class="btn filebtn">Importar o recuperar una copia<input type="file" id="impFile" accept=".json,application/json"></label>
       <p class="note" id="expNote"></p>
     </div>
@@ -276,9 +283,9 @@ h2.sec{font-size:18px;margin:22px 0 8px}
 <div class="toast" id="toast" hidden></div>
 
 <script>
-const APP_VERSION='3.0.1';
+const APP_VERSION='3.1.0';
 /* ---------- catálogo de la revisión ---------- */
-const AMBITOS=[
+const AMBITOS_TODOS=[
  {k:'tic',t:'Técnico (TIC)',resp:'Jefe del Servicio de Informática y Transformación Digital',areas:[
   {k:'internet',t:'Internet',items:[['i1','Proveedor, tecnología y titular del contrato','Fibra, radio, VSAT, 4G; coste mensual'],['i2','Velocidad medida y estabilidad','Prueba a distintas horas'],['i3','Cortes en el último mes','Frecuencia, duración, quién los resuelve'],['i4','Router del proveedor','Modelo, quién tiene la contraseña, IP fija']]},
   {k:'interconexion',t:'Interconexión',items:[['x1','Proveedores con cobertura real en la localidad',''],['x2','Punto de entrada y canalización para el enlace',''],['x3','Viabilidad de radioenlace','Línea de visión, azotea, mástil']]},
@@ -304,6 +311,7 @@ const AMBITOS=[
   {k:'atencion',t:'Atención al asegurado',items:[['m6','Trato al público y tiempos de espera',''],['m7','Información visible al público','Requisitos, tasas, horario, quejas'],['m8','Material impreso y formularios actualizados','Logo y datos vigentes'],['m9','Identificación del personal','Tarjeta o uniforme']]}
  ]}
 ];
+const AMBITOS=AMBITOS_TODOS.filter(a=>a.k==='tic');
 const BATA={k:'contingencia',t:'Centro de contingencia',items:[['b1','Sala candidata a CPD','Superficie, carga eléctrica, clima, seguridad'],['b2','Espacio para servidores, cabina y switches SAN',''],['b3','Enlace actual Sede–Bata','Tecnología, velocidad, estabilidad'],['b4','Enlaces desde Bata a las demás oficinas',''],['b5','Personal local para manos remotas','']]};
 const ETAPAS=['Región Continental','Región Insular','Annobón'];
 const EST=[['bien','Bien'],['reg','Regular'],['mal','Mal'],['na','N/A']];
@@ -311,11 +319,16 @@ const EST_TXT={bien:'Bien',reg:'Regular',mal:'Mal',na:'No aplica'};
 const NIVELES=['Crítico','Alto','Medio','Bajo'];
 const HEST=['Abierto','En curso','Cerrado'];
 const ESTADOS=['Pendiente','En curso','Completada'];
+const TIPOS_EQ=['PC de sobremesa','Portátil','Monitor','Impresora','Multifunción','Fotocopiadora','Escáner','Plotter','Impresora de carnés','Servidor','SAI','Switch','Router','Punto de acceso WiFi','Teléfono IP','Proyector','Tableta','Otro'];
+const IMPRIME=new Set(['Impresora','Multifunción','Fotocopiadora','Plotter','Impresora de carnés']);
+const TIPOS_CONS=['Tóner negro','Tóner cian','Tóner magenta','Tóner amarillo','Cartucho de tinta negro','Cartucho de tinta color','Tambor / unidad de imagen','Cinta (ribbon)','Kit de mantenimiento','Otro'];
+const ESTADOS_EQ=['Operativo','Averiado','Obsoleto','Sin usar'];
+const MARCAS=['HP','Canon','Epson','Brother','Kyocera','Lexmark','Ricoh','Xerox','Konica Minolta','Sharp','Toshiba','Samsung','Pantum','Dell','Lenovo','Acer','Asus','Apple','Fujitsu','Huawei','Cisco','TP-Link','APC','Eaton','Evolis','Zebra','Fargo'];
 const DATOS=[['proveedor','Proveedor de Internet',0],['tecnologia','Tecnología del enlace',0],['bajada','Bajada medida (Mbps)',1],['subida','Subida medida (Mbps)',1],['usuarios','N.º de usuarios',1],['pcs','N.º de PCs de sobremesa',1],['portatiles','N.º de portátiles',1],['impresoras','N.º de impresoras',1],['puntos','Puntos de red activos',1],['puntosNec','Puntos de red necesarios',1]];
 const INFO=[['fecha','Fecha de visita','date'],['responsable','Responsable de la oficina','text'],['telefono','Teléfono','tel'],['equipo','Comitiva o equipo visitante','text'],['empleados','N.º de empleados','num'],['servicios','Servicios presentes','text']];
 const ITEM_LABEL={};const ITEM_AREA={};const ITEM_AMB={};
 for(const a of [BATA])for(const [k,l] of a.items){ITEM_LABEL[k]=l;ITEM_AREA[k]=a.t;ITEM_AMB[k]='tic'}
-for(const am of AMBITOS)for(const a of am.areas)for(const [k,l] of a.items){ITEM_LABEL[k]=l;ITEM_AREA[k]=a.t;ITEM_AMB[k]=am.k}
+for(const am of AMBITOS_TODOS)for(const a of am.areas)for(const [k,l] of a.items){ITEM_LABEL[k]=l;ITEM_AREA[k]=a.t;ITEM_AMB[k]=am.k}
 
 /* ---------- utilidades ---------- */
 const $=s=>document.querySelector(s);
@@ -346,21 +359,21 @@ function putL(d,l,obj){d.L[l]=d.L[l]||{};d.L[l][obj.id]=Object.assign({},d.L[l][
 function delL(d,l,id){const x=(d.L[l]||{})[id];if(!x)return;d.L[l][id]={id,t:now(),a:autor(),del:true};marcar(d.id)}
 function ultimo(d){let b={t:0,a:''};for(const x of Object.values(d.f))if(x.t>b.t)b=x;for(const l of Object.values(d.L))for(const x of Object.values(l))if(x.t>b.t)b=x;if(d.borrado&&d.borrado.t>b.t)b=d.borrado;return b}
 function vivos(){return Object.entries(S.docs).filter(([,d])=>!d.borrado)}
-function nuevoDoc(id,nombre,loc,etapa,extra){const d={id,f:{},L:{tec:{},hal:{},fot:{}},borrado:null};const t=now(),a=autor();
+function nuevoDoc(id,nombre,loc,etapa,extra){const d={id,f:{},L:{tec:{},hal:{},fot:{},eq:{}},borrado:null};const t=now(),a=autor();
   const base=Object.assign({nombre,localidad:loc,etapa:etapa||etapaDe(nombre,loc),contingencia:/bata/i.test(nombre+' '+loc),estado:'Pendiente'},extra||{});
   for(const [k,v] of Object.entries(base))d.f[k]={v,t,a};return d}
 function merge(a,b){
   if(!a)return b;if(!b)return a;
   const pick=(x,y)=>!x?y:!y?x:(x.t>y.t||(x.t===y.t&&canon(x)>=canon(y)))?x:y;
-  const out={id:a.id||b.id,f:{},L:{tec:{},hal:{},fot:{}},borrado:null};
+  const out={id:a.id||b.id,f:{},L:{tec:{},hal:{},fot:{},eq:{}},borrado:null};
   for(const k of new Set([...Object.keys(a.f||{}),...Object.keys(b.f||{})]))out.f[k]=pick((a.f||{})[k],(b.f||{})[k]);
-  for(const l of ['tec','hal','fot']){const A=(a.L||{})[l]||{},B=(b.L||{})[l]||{};for(const k of new Set([...Object.keys(A),...Object.keys(B)]))out.L[l][k]=pick(A[k],B[k])}
+  for(const l of ['tec','hal','fot','eq']){const A=(a.L||{})[l]||{},B=(b.L||{})[l]||{};for(const k of new Set([...Object.keys(A),...Object.keys(B)]))out.L[l][k]=pick(A[k],B[k])}
   out.borrado=pick(a.borrado,b.borrado)||null;
   if(out.borrado){const u=ultimo(Object.assign({},out,{borrado:null}));if(u.t>out.borrado.t)out.borrado=null}
   return out}
 /* Convierte una oficina del formato antiguo (v1/v2) al actual */
 function desdeAntiguo(id,o,quien){
-  const t=o.updatedAt||Date.now(),a=quien||'Importado';const d={id,f:{},L:{tec:{},hal:{},fot:{}},borrado:null};
+  const t=o.updatedAt||Date.now(),a=quien||'Importado';const d={id,f:{},L:{tec:{},hal:{},fot:{},eq:{}},borrado:null};
   const put=(p,v)=>{if(v!==undefined&&v!==null&&v!=='')d.f[p]={v,t,a}};
   put('nombre',o.nombre);put('localidad',o.localidad);put('etapa',o.etapa||etapaDe(o.nombre,o.localidad));put('contingencia',!!o.contingencia);put('estado',o.estado||'Pendiente');put('acuerdos',o.acuerdos);
   for(const [k,v] of Object.entries(o.info||{}))put('info.'+k,v);
@@ -380,7 +393,7 @@ function loadLocal(){try{const r=localStorage.getItem(LS);if(!r)return;const o=J
     for(const [id,doc] of Object.entries(o.docs||{}))S.docs[id]=desdeAntiguo(id,doc,'Registrado antes de la v3');
     S.current=o.current||null;S.lastExport=o.lastExport||0;
     for(const id of Object.keys(S.docs))S.dirty[id]=1;
-    for(const id of Object.keys(o.borrados||{}))if(!S.docs[id]){S.docs[id]={id,f:{},L:{tec:{},hal:{},fot:{}},borrado:{t:Date.now(),a:'Registrado antes de la v3'}};S.dirty[id]=1}
+    for(const id of Object.keys(o.borrados||{}))if(!S.docs[id]){S.docs[id]={id,f:{},L:{tec:{},hal:{},fot:{},eq:{}},borrado:{t:Date.now(),a:'Registrado antes de la v3'}};S.dirty[id]=1}
     try{localStorage.setItem(LS+'-respaldo-v2',r)}catch(e){}
   }
   for(const d of Object.values(S.docs)){for(const x of Object.values(d.f))if(x.t>lastT)lastT=x.t}
@@ -458,7 +471,7 @@ function renderSide(){
 function fillEtapas(){
   $('#etapaSel').innerHTML=['Todas',...ETAPAS].map(e=>`<option ${S.etapa===e?'selected':''} value="${esc(e)}">${e==='Todas'?'Todas las etapas':esc(e)}</option>`).join('');
   $('#newEtapa').innerHTML=ETAPAS.map(e=>`<option ${(S.etapa===e||(S.etapa==='Todas'&&e===ETAPAS[0]))?'selected':''}>${esc(e)}</option>`).join('');
-  $('#brandSub').textContent=(S.etapa==='Todas'?'Todas las etapas':S.etapa)+' · revisión técnica, administrativa e imagen';
+  $('#brandSub').textContent=(S.etapa==='Todas'?'Todas las etapas':S.etapa)+' · oficinas del INSESO';
 }
 
 /* ---------- ficha de la oficina ---------- */
@@ -466,7 +479,7 @@ let editH=null,editT=null;
 function renderMain(){
   if(S.view==='resumen')return renderResumen();
   const m=$('#main');const id=S.current,d=S.docs[id];
-  if(!d||d.borrado){m.innerHTML=`<div class="empty"><b>Elija o añada una oficina</b>Cada oficina tiene su ficha con tres ámbitos: técnico, administrativo y financiero, e imagen institucional, además de fotos, hallazgos con seguimiento e informe de visita.</div>`;return}
+  if(!d||d.borrado){m.innerHTML=`<div class="empty"><b>Elija o añada una oficina</b>Cada oficina tiene su ficha TIC: revisión técnica, inventario de equipos y consumibles, personal informático, fotos, hallazgos con seguimiento e informe de visita.</div>`;return}
   const am=AMBITOS.find(a=>a.k===S.amb)||AMBITOS[0];const areas=areasDe(d,am.k);const u=ultimo(d);const geo=g(d,'geo',null);
   m.innerHTML=`
   <div class="head">
@@ -476,7 +489,7 @@ function renderMain(){
     <button class="btn" type="button" id="informeBtn">Informe PDF</button>
   </div>
   <p class="meta">${u.t?`Última modificación: ${esc(u.a)} · ${hora(u.t)}`:''}</p>
-  <div class="tabs" role="group" aria-label="Ámbito">${AMBITOS.map(a=>{const s=statsAmb(d,a.k);return `<button type="button" data-amb="${a.k}" aria-pressed="${a.k===am.k}">${esc(a.t)}<small>${s.done}/${s.tot} revisados${s.mal?` · ${s.mal} mal`:''}</small></button>`}).join('')}</div>
+  <div class="tabs" role="group" aria-label="Ámbito" ${AMBITOS.length<2?'hidden':''}>${AMBITOS.map(a=>{const s=statsAmb(d,a.k);return `<button type="button" data-amb="${a.k}" aria-pressed="${a.k===am.k}">${esc(a.t)}<small>${s.done}/${s.tot} revisados${s.mal?` · ${s.mal} mal`:''}</small></button>`}).join('')}</div>
   <div class="prog" id="prog"></div>
   <nav class="jump" id="jump" aria-label="Secciones"></nav>
   <section class="card" id="sec-apertura"><h3><span>Apertura de la visita</span></h3>
@@ -492,9 +505,10 @@ function renderMain(){
         <input type="tel" id="t-tel" placeholder="Teléfono" aria-label="Teléfono" autocomplete="off">
         <div class="acts"><button class="btn primary" type="button" id="t-add">Añadir técnico</button><button class="btn" type="button" id="t-cancel" hidden>Cancelar edición</button></div></div>
       <div class="hl" id="tl"></div></div></section>
+  ${am.k==='tic'?INV_HTML():''}
   ${am.k==='tic'?`<section class="card" id="sec-datos"><h3><span>Datos clave</span><small>cifras para el informe</small></h3>
     <div class="grid">${DATOS.map(([k,l,n])=>`<label class="f">${l}<input type="text" ${n?'inputmode="decimal" data-num="1"':''} id="dat-${k}" data-f="datos.${k}" value="${esc(g(d,'datos.'+k))}" class="${n&&!isNum(g(d,'datos.'+k))?'bad':''}">${n&&!isNum(g(d,'datos.'+k))?'<small>Debe ser un número</small>':''}</label>`).join('')}</div></section>`:''}
-  <p class="resp">Responsable de este ámbito: <b>${esc(am.resp)}</b></p>
+  ${AMBITOS.length>1?`<p class="resp">Responsable de este ámbito: <b>${esc(am.resp)}</b></p>`:''}
   ${areas.map(a=>`<section class="card" id="sec-${a.k}"><h3><span>${a.k==='contingencia'?'<span class="tag">Solo Bata · </span>':''}${esc(a.t)}</span><small id="cnt-${a.k}"></small></h3>
     ${a.items.map(([k,l,h])=>{const e=g(d,'items.'+k+'.e'),n=g(d,'items.'+k+'.n');const ie=gi(d,'items.'+k+'.e'),in_=gi(d,'items.'+k+'.n');const w=[ie,in_].filter(x=>x&&(x.v||x.v===''&&false)).sort((x,y)=>y.t-x.t)[0];
       return `<div class="item ${e?'st-'+e:''}" id="it-${k}">
@@ -528,13 +542,29 @@ function renderMain(){
         <button class="btn primary" type="button" data-estado="Completada">Marcar visita como completada</button>
         <button class="btn danger" type="button" id="delOff">Eliminar oficina</button></div></div></section>`;
   editH=null;editT=null;
-  refreshCounts();renderHallazgos();renderTecnicos();renderPhotos();
+  editE=null;refreshCounts();renderHallazgos();renderTecnicos();renderInventario();renderPhotos();
 }
+function INV_HTML(){return `  <section class="card" id="sec-inventario"><h3><span>Inventario de equipos y consumibles</span><small id="cnt-eq"></small></h3>
+    <div class="pad">
+      <div class="hform" id="e-form">
+        <label class="f">Tipo de equipo<select id="e-tipo">${TIPOS_EQ.map(x=>`<option>${esc(x)}</option>`).join('')}</select></label>
+        <label class="f">Marca<input type="text" id="e-marca" list="dl-marcas" autocomplete="off" autocapitalize="words"></label>
+        <label class="f">Modelo<input type="text" id="e-modelo" list="dl-modelos" autocomplete="off"></label>
+        <label class="f">Cantidad<input type="text" id="e-cant" inputmode="numeric" value="1" autocomplete="off"></label>
+        <label class="f">Estado<select id="e-estado">${ESTADOS_EQ.map(x=>`<option>${esc(x)}</option>`).join('')}</select></label>
+        <label class="f">Ubicación o Servicio<input type="text" id="e-ubic" autocomplete="off"></label>
+        <div class="consbox" id="e-consbox" hidden><b>Consumibles de este equipo</b><p class="note">Referencia que figura en el tóner o cartucho (p. ej. CF259A, TK-1170, 106R03623), unidades en stock en la oficina y unidades que hacen falta.</p>
+          <div id="e-cons"></div><button class="btn sm" type="button" id="e-cons-add" style="margin-top:8px">Añadir otro consumible</button></div>
+        <div class="acts"><button class="btn primary" type="button" id="e-add">Añadir equipo</button><button class="btn" type="button" id="e-cancel" hidden>Cancelar edición</button></div>
+      </div>
+      <datalist id="dl-marcas"></datalist><datalist id="dl-modelos"></datalist><datalist id="dl-refs"></datalist>
+      <div id="el"></div></div></section>
+`}
 function refreshCounts(){
   const d=S.docs[S.current];if(!d||!$('#prog'))return;const s=statsAmb(d,S.amb);
   $('#prog').innerHTML=`<span>${s.done} de ${s.tot} puntos revisados en este ámbito</span><span class="bar"><b style="width:${s.pct}%"></b></span><span>${s.pct}%</span>`;
   const areas=areasDe(d,S.amb);
-  $('#jump').innerHTML=[['apertura','Apertura'],['tecnicos','Técnicos']].concat(S.amb==='tic'?[['datos','Datos']]:[]).map(([k,t])=>`<button type="button" data-jump="${k}">${t}</button>`).join('')+
+  $('#jump').innerHTML=[['apertura','Apertura'],['tecnicos','Técnicos']].concat(S.amb==='tic'?[['inventario','Inventario'],['datos','Datos']]:[]).map(([k,t])=>`<button type="button" data-jump="${k}">${t}</button>`).join('')+
     areas.map(a=>{const x=areaStats(d,a);return `<button type="button" data-jump="${a.k}" class="${x.done===x.tot?'done':''}">${esc(a.t)}<small>${x.done}/${x.tot}</small></button>`}).join('')+
     `<button type="button" data-jump="fotos">Fotos<small>${lista(d,'fot').length}</small></button><button type="button" data-jump="hallazgos">Hallazgos<small>${lista(d,'hal').length}</small></button><button type="button" data-jump="cierre">Cierre</button>`;
   for(const a of areas){const x=areaStats(d,a);const el=document.getElementById('cnt-'+a.k);if(el)el.textContent=`${x.done}/${x.tot}`}
@@ -574,6 +604,60 @@ function shrink(file){return new Promise(res=>{const u=URL.createObjectURL(file)
     const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(im,0,0,w,h);c.toBlob(b=>{URL.revokeObjectURL(u);res(b||file)},'image/jpeg',.8)};
   im.onerror=()=>{URL.revokeObjectURL(u);res(file)};im.src=u})}
 
+
+/* ---------- inventario de equipos y consumibles ---------- */
+let editE=null;
+const numE=v=>{const n=parseFloat(String(v??'').replace(',','.'));return isFinite(n)?n:0};
+function todosEq(){const out=[];for(const [id,d] of vivos())for(const e of lista(d,'eq'))out.push([id,d,e]);return out}
+function consRow(c){c=c||{};return `<div class="consrow"><label class="f">Referencia<input type="text" class="c-ref" list="dl-refs" value="${esc(c.ref)}" autocomplete="off" autocapitalize="characters"></label>
+  <label class="f">Tipo<select class="c-tipo">${TIPOS_CONS.map(x=>`<option ${c.tipo===x?'selected':''}>${esc(x)}</option>`).join('')}</select></label>
+  <label class="f">En stock<input type="text" class="c-stock" inputmode="numeric" value="${esc(c.stock)}" autocomplete="off"></label>
+  <label class="f">Necesarias<input type="text" class="c-nec" inputmode="numeric" value="${esc(c.nec)}" autocomplete="off"></label>
+  <button class="btn danger sm c-del" type="button" aria-label="Quitar consumible">Quitar</button></div>`}
+function consForm(list){const box=$('#e-cons');if(!box)return;box.innerHTML=(list&&list.length?list:[{}]).map(consRow).join('')}
+function leerCons(){return [...document.querySelectorAll('#e-cons .consrow')].map(r=>({ref:r.querySelector('.c-ref').value.trim().toUpperCase(),tipo:r.querySelector('.c-tipo').value,stock:r.querySelector('.c-stock').value.trim(),nec:r.querySelector('.c-nec').value.trim()})).filter(c=>c.ref)}
+function toggleCons(){const box=$('#e-consbox');if(!box)return;const on=IMPRIME.has($('#e-tipo').value);box.hidden=!on;if(on&&!document.querySelector('#e-cons .consrow'))consForm([])}
+function datalists(){const ms=new Set(MARCAS),mo=new Set(),rf=new Set();for(const [,,e] of todosEq()){if(e.marca)ms.add(e.marca);if(e.modelo)mo.add(e.modelo);for(const c of e.cons||[])if(c.ref)rf.add(c.ref)}
+  const fill=(id,set)=>{const el=document.getElementById(id);if(el)el.innerHTML=[...set].sort((a,b)=>a.localeCompare(b)).map(v=>`<option value="${esc(v)}">`).join('')};
+  fill('dl-marcas',ms);fill('dl-modelos',mo);fill('dl-refs',rf)}
+function autoCons(){/* si el mismo modelo ya se registró en otra oficina, propone sus consumibles */
+  const ma=$('#e-marca').value.trim().toLowerCase(),mo=$('#e-modelo').value.trim().toLowerCase();if(!mo||leerCons().length)return;
+  const prev=todosEq().map(x=>x[2]).find(e=>String(e.modelo||'').toLowerCase()===mo&&(!ma||String(e.marca||'').toLowerCase()===ma)&&(e.cons||[]).length);
+  if(prev){if(!$('#e-marca').value.trim())$('#e-marca').value=prev.marca||'';$('#e-tipo').value=prev.tipo;toggleCons();consForm(prev.cons.map(c=>({ref:c.ref,tipo:c.tipo})));toast('Consumibles propuestos según el mismo modelo en otra oficina. Indique stock y necesarias.')}}
+function limpiarE(){if(!$('#e-tipo'))return;$('#e-marca').value='';$('#e-modelo').value='';$('#e-cant').value='1';$('#e-estado').value='Operativo';$('#e-ubic').value='';consForm([]);toggleCons();editE=null;$('#e-add').textContent='Añadir equipo';$('#e-cancel').hidden=true}
+function consTxt(c){return `<span class="cons"><b>${esc(c.ref)}</b> · ${esc(c.tipo)}${c.stock!==''&&c.stock!=null?` · stock ${esc(c.stock)}`:''}${c.nec!==''&&c.nec!=null?` · necesarias ${esc(c.nec)}`:''}</span>`}
+function renderInventario(){
+  const d=S.docs[S.current];const el=document.getElementById('el');if(!d||!el)return;datalists();toggleCons();
+  const ord=t=>{const i=TIPOS_EQ.indexOf(t);return i<0?99:i};
+  const es=lista(d,'eq').sort((a,b)=>ord(a.tipo)-ord(b.tipo)||String(a.marca).localeCompare(String(b.marca))||String(a.modelo).localeCompare(String(b.modelo)));
+  const total=es.reduce((s,e)=>s+numE(e.cantidad),0);
+  $('#cnt-eq').textContent=es.length?`${total} equipo${total!==1?'s':''} · ${es.length} modelo${es.length!==1?'s':''}`:'';
+  el.innerHTML=es.length?`<div class="tablewrap"><table class="tb"><thead><tr><th>Tipo</th><th>Marca y modelo</th><th class="n">Cant.</th><th>Estado</th><th>Consumibles</th><th></th></tr></thead><tbody>${es.map(e=>`<tr${editE===e.id?' style="box-shadow:inset 3px 0 0 var(--accent)"':''}><td>${esc(e.tipo)}${e.ubic?`<br><small class="note">${esc(e.ubic)}</small>`:''}</td><td><b>${esc(e.marca)}</b> ${esc(e.modelo)}<br><small class="note">${esc(e.a)} · ${hora(e.t)}</small></td><td class="n">${esc(e.cantidad)}</td><td>${esc(e.estado)}</td><td>${(e.cons||[]).map(consTxt).join('')||(IMPRIME.has(e.tipo)?'<span class="cons" style="color:var(--warn)">Falta la referencia</span>':'')}</td>
+    <td><div class="btns" style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn sm" type="button" data-ede="${esc(e.id)}">Editar</button><button class="btn danger sm" type="button" data-dele="${esc(e.id)}">Quitar</button></div></td></tr>`).join('')}</tbody></table></div>`
+    :'<p class="note">Registre cada modelo de equipo con su cantidad: PCs, portátiles, monitores, impresoras, multifunciones, escáneres, SAI… En impresoras y multifunciones, añada la referencia de cada consumible con su stock y las unidades necesarias.</p>';
+}
+function invAgregado(list){/* equipos agrupados por tipo+marca+modelo y consumibles por referencia, para todas las oficinas de la lista */
+  const eq=new Map(),co=new Map();
+  for(const [id,d] of list)for(const e of lista(d,'eq')){const k=[e.tipo,(e.marca||'').trim().toUpperCase(),(e.modelo||'').trim().toUpperCase()].join('|');
+    const x=eq.get(k)||{tipo:e.tipo,marca:e.marca,modelo:e.modelo,total:0,of:{}};x.total+=numE(e.cantidad);x.of[g(d,'nombre')]=(x.of[g(d,'nombre')]||0)+numE(e.cantidad);eq.set(k,x);
+    for(const c of e.cons||[]){if(!c.ref)continue;const r=co.get(c.ref)||{ref:c.ref,tipo:c.tipo,equipos:new Set(),stock:0,nec:0,of:{}};r.equipos.add(`${e.marca||''} ${e.modelo||''}`.trim());r.stock+=numE(c.stock);r.nec+=numE(c.nec);
+      const o=r.of[g(d,'nombre')]||{stock:0,nec:0};o.stock+=numE(c.stock);o.nec+=numE(c.nec);r.of[g(d,'nombre')]=o;co.set(c.ref,r)}}
+  const ord=t=>{const i=TIPOS_EQ.indexOf(t);return i<0?99:i};
+  return{eq:[...eq.values()].sort((a,b)=>ord(a.tipo)-ord(b.tipo)||String(a.marca).localeCompare(String(b.marca))),co:[...co.values()].sort((a,b)=>b.nec-a.nec||a.ref.localeCompare(b.ref))}}
+function invResumenHTML(list){const {eq,co}=invAgregado(list);const ofs=o=>Object.entries(o).map(([n,v])=>`${esc(n)} ${v}`).join(' · ');
+  return `<h2 class="sec">Inventario de equipos</h2>${eq.length?`<div class="tablewrap"><table class="tb"><thead><tr><th>Tipo</th><th>Marca</th><th>Modelo</th><th class="n">Total</th><th>Por oficina</th></tr></thead><tbody>${eq.map(x=>`<tr><td>${esc(x.tipo)}</td><td>${esc(x.marca)}</td><td>${esc(x.modelo)}</td><td class="n">${x.total}</td><td>${ofs(x.of)}</td></tr>`).join('')}</tbody></table></div>`:'<p class="note">Aún no hay equipos registrados.</p>'}
+  <h2 class="sec">Consumibles de impresión</h2>${co.length?`<div class="tablewrap"><table class="tb"><thead><tr><th>Referencia</th><th>Tipo</th><th>Equipos compatibles</th><th class="n">Stock</th><th class="n">Necesarias</th><th>Por oficina (stock / necesarias)</th></tr></thead><tbody>${co.map(r=>`<tr><td><b>${esc(r.ref)}</b></td><td>${esc(r.tipo)}</td><td>${[...r.equipos].map(esc).join('<br>')}</td><td class="n">${r.stock}</td><td class="n">${r.nec}</td><td>${Object.entries(r.of).map(([n,v])=>`${esc(n)} ${v.stock} / ${v.nec}`).join(' · ')}</td></tr>`).join('')}</tbody></table></div>`:'<p class="note">Aún no hay consumibles registrados.</p>'}
+  <p style="margin-top:10px"><button class="btn" type="button" id="expInv2">Exportar inventario para Excel</button></p>`}
+async function exportarInventario(){
+  const rows=[['Etapa','Oficina','Localidad','Tipo de equipo','Marca','Modelo','Cantidad','Estado','Ubicación o Servicio','Referencia consumible','Tipo consumible','En stock','Necesarias','Anotado por','Fecha anotación']];
+  for(const [,d] of sorted())for(const e of lista(d,'eq')){const base=[g(d,'etapa'),g(d,'nombre'),g(d,'localidad'),e.tipo,e.marca,e.modelo,e.cantidad,e.estado,e.ubic];const w=[e.a,new Date(e.t).toLocaleString('es-ES')];
+    if((e.cons||[]).length)for(const c of e.cons)rows.push([...base,c.ref,c.tipo,c.stock,c.nec,...w]);else rows.push([...base,'','','','',...w])}
+  rows.push([]);rows.push(['RESUMEN DE CONSUMIBLES','','','Referencia','Tipo','Equipos compatibles','','','','','','En stock','Necesarias']);
+  for(const r of invAgregado(sorted()).co)rows.push(['','','',r.ref,r.tipo,[...r.equipos].join(' / '),'','','','','',r.stock,r.nec]);
+  const csv='﻿'+rows.map(r=>r.map(csvCell).join(';')).join('\r\n');
+  await deliver(new Blob([csv],{type:'text/csv'}),`Inventario_TIC_INSESO_${today()}.csv`)}
+document.addEventListener('click',e=>{if(e.target.closest('#expInv,#expInv2'))exportarInventario()});
+
 /* ---------- resumen de la gira ---------- */
 function heat(s){if(!s.tot||!s.done)return '<span class="heat hx">—</span>';const r=s.mal/s.done;const c=!s.mal?(s.reg?'h1':'h0'):r<.4?'h1':'h2';return `<span class="heat ${c}">${s.mal} mal${s.reg?` · ${s.reg} reg.`:''}</span>`}
 function renderResumen(){
@@ -596,7 +680,8 @@ function renderResumen(){
   <div class="tablewrap"><table class="tb"><thead><tr><th>Nivel</th><th>Oficina</th><th>Área</th><th>Hallazgo</th><th>Responsable</th><th>Límite</th><th>Estado</th></tr></thead><tbody>
   ${hall.map(([id,d,h])=>`<tr><td><span class="lv l${ord(h)}">${esc(h.nivel)}</span></td><td><button type="button" class="lnk" data-off="${esc(id)}">${esc(g(d,'nombre'))}</button></td><td>${esc(h.area)}</td><td>${esc(h.desc)}${h.acc?`<br><small class="note">Acción: ${esc(h.acc)}</small>`:''}</td><td>${esc(h.resp)}</td><td>${h.limite?esc(fmtDia(h.limite)):''}</td><td><span class="pill ${vencido(h)?'vencido':(h.estado||'Abierto').toLowerCase().replace(' ','')}">${vencido(h)?'Vencido':esc(h.estado||'Abierto')}</span></td></tr>`).join('')||'<tr><td colspan="7">No hay hallazgos abiertos.</td></tr>'}
   </tbody></table></div>
-  <p class="note" style="margin-top:10px">«Mal» cuenta los puntos valorados como Mal en cada ámbito. Verde: casi todo bien; ámbar: deficiencias; rojo: muchas deficiencias.</p>`;
+  <p class="note" style="margin-top:10px">«Mal» cuenta los puntos valorados como Mal. Verde: casi todo bien; ámbar: deficiencias; rojo: muchas deficiencias.</p>
+  ${invResumenHTML(list)}`;
 }
 
 /* ---------- informe de visita (PDF) ---------- */
@@ -606,7 +691,7 @@ async function informe(){
   const ord=h=>NIVELES.indexOf(h.nivel);const hs=lista(d,'hal').sort((a,b)=>ord(a)-ord(b));
   const filas=[];for(const am of AMBITOS)for(const a of areasDe(d,am.k))for(const [k,l] of a.items){const e=g(d,'items.'+k+'.e'),n=g(d,'items.'+k+'.n');if(e||n)filas.push([am.t,a.t,l,EST_TXT[e]||'',n])}
   let nsec=0;const N=()=>++nsec;const datos=DATOS.filter(([k])=>g(d,'datos.'+k)!=='');const geo=g(d,'geo',null);
-  $('#informe').innerHTML=`<div class="memb"><div><b>INSTITUTO DE SEGURIDAD SOCIAL (INSESO)</b><br><span>Gira de la Dirección · ${esc(g(d,'etapa'))}</span></div><div style="text-align:right"><span>Informe generado el ${esc(new Date().toLocaleDateString('es-ES'))}</span></div></div>
+  $('#informe').innerHTML=`<div class="memb"><div><b>INSTITUTO DE SEGURIDAD SOCIAL (INSESO)</b><br><span>Servicio de Informática y Transformación Digital · Gira TIC · ${esc(g(d,'etapa'))}</span></div><div style="text-align:right"><span>Informe generado el ${esc(new Date().toLocaleDateString('es-ES'))}</span></div></div>
   <h1>Informe de visita · ${esc(g(d,'nombre'))}</h1>
   <p>${esc(g(d,'localidad'))} · Fecha de visita: ${esc(fmtDia(g(d,'info.fecha'))||'sin fecha')} · Estado: ${esc(g(d,'estado','Pendiente'))}</p>
   <h2>${N()}. Datos de la visita</h2><table><tbody>
@@ -614,11 +699,14 @@ async function informe(){
   ${geo&&geo.lat!=null?`<tr><th>Ubicación GPS</th><td>${Number(geo.lat).toFixed(5)}, ${Number(geo.lng).toFixed(5)}</td></tr>`:''}</tbody></table>
   ${lista(d,'tec').length?`<h2>${N()}. Personal informático de la oficina</h2><table><thead><tr><th>Nombre</th><th>Cargo</th><th>Teléfono</th></tr></thead><tbody>${lista(d,'tec').map(t=>`<tr><td>${esc(t.nombre)}</td><td>${esc(t.cargo)}</td><td>${esc(t.tel)}</td></tr>`).join('')}</tbody></table>`:''}
   ${datos.length?`<h2>${N()}. Datos clave</h2><table><tbody>${datos.map(([k,l])=>`<tr><th style="width:45%">${l}</th><td>${esc(g(d,'datos.'+k))}</td></tr>`).join('')}</tbody></table>`:''}
+  ${(()=>{const es=lista(d,'eq');if(!es.length)return '';const {co}=invAgregado([[d.id,d]]);
+    return `<h2>${N()}. Inventario de equipos</h2><table><thead><tr><th>Tipo</th><th>Marca</th><th>Modelo</th><th>Cant.</th><th>Estado</th><th>Ubicación</th></tr></thead><tbody>${es.map(e=>`<tr><td>${esc(e.tipo)}</td><td>${esc(e.marca)}</td><td>${esc(e.modelo)}</td><td>${esc(e.cantidad)}</td><td>${esc(e.estado)}</td><td>${esc(e.ubic)}</td></tr>`).join('')}</tbody></table>
+    ${co.length?`<h2>${N()}. Consumibles de impresión</h2><table><thead><tr><th>Referencia</th><th>Tipo</th><th>Equipos compatibles</th><th>En stock</th><th>Necesarias</th></tr></thead><tbody>${co.map(r=>`<tr><td>${esc(r.ref)}</td><td>${esc(r.tipo)}</td><td>${[...r.equipos].map(esc).join(', ')}</td><td>${r.stock}</td><td>${r.nec}</td></tr>`).join('')}</tbody></table>`:''}`})()}
   <h2>${N()}. Hallazgos</h2>${hs.length?`<table><thead><tr><th>Nivel</th><th>Área</th><th>Hallazgo</th><th>Acción propuesta</th><th>Responsable</th><th>Límite</th><th>Estado</th></tr></thead><tbody>${hs.map(h=>`<tr><td>${esc(h.nivel)}</td><td>${esc(h.area)}</td><td>${esc(h.desc)}</td><td>${esc(h.acc)}</td><td>${esc(h.resp)}</td><td>${esc(fmtDia(h.limite))}</td><td>${esc(h.estado)}</td></tr>`).join('')}</tbody></table>`:'<p>No se registraron hallazgos.</p>'}
-  <h2>${N()}. Revisión por ámbitos</h2>${filas.length?`<table><thead><tr><th>Ámbito</th><th>Área</th><th>Punto</th><th>Valoración</th><th>Observaciones</th></tr></thead><tbody>${filas.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td class="${esc(r[3])}">${esc(r[3])}</td><td>${esc(r[4])}</td></tr>`).join('')}</tbody></table>`:'<p>Sin puntos revisados.</p>'}
+  <h2>${N()}. Revisión técnica</h2>${filas.length?`<table><thead><tr><th>Ámbito</th><th>Área</th><th>Punto</th><th>Valoración</th><th>Observaciones</th></tr></thead><tbody>${filas.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td class="${esc(r[3])}">${esc(r[3])}</td><td>${esc(r[4])}</td></tr>`).join('')}</tbody></table>`:'<p>Sin puntos revisados.</p>'}
   <h2>${N()}. Acuerdos inmediatos</h2><p style="white-space:pre-line">${esc(g(d,'acuerdos'))||'Sin acuerdos registrados.'}</p>
   ${fotos.length?`<h2>${N()}. Fotografías</h2><div class="fotos">${fotos.map(([f,u],i)=>`<figure><img src="${u}" alt=""><figcaption>Foto ${i+1}. ${esc(f.area)}${f.pie?' · '+esc(f.pie):''}</figcaption></figure>`).join('')}</div>`:''}
-  <div class="firmas"><div>Por la comitiva</div><div>Responsable de la oficina</div></div>
+  <div class="firmas"><div>Por el Servicio de Informática y Transformación Digital</div><div>Responsable de la oficina</div></div>
   <p class="lema">POR UNA GUINEA MEJOR</p>`;
   await Promise.all([...document.querySelectorAll('#informe img')].map(i=>i.complete?null:new Promise(r=>{i.onload=i.onerror=r})));
   setTimeout(()=>window.print(),50);
@@ -639,6 +727,8 @@ main.addEventListener('input',e=>{const t=e.target,d=S.docs[S.current];if(!d||!t
 main.addEventListener('change',async e=>{const t=e.target,d=S.docs[S.current];if(!d)return;
   if(t.id==='f-cont'){setF(d,'contingencia',t.checked);renderMain();return}
   if(t.id==='f-etapa'){setF(d,'etapa',t.value);renderSide();return}
+  if(t.id==='e-tipo'){toggleCons();return}
+  if(t.id==='e-modelo'||t.id==='e-marca'){autoCons();return}
   if(t.id==='ph-file'&&t.files&&t.files.length){
     if(!idb){toast('Este dispositivo no permite guardar fotos en la app.');return}
     const area=$('#ph-area').value,pie=$('#ph-pie').value.trim(),files=[...t.files],docId=S.current;t.value='';$('#ph-pie').value='';
@@ -665,6 +755,20 @@ main.addEventListener('click',e=>{const t=e.target.closest('button');if(!t)retur
   if(t.id==='t-cancel'){limpiarT();renderTecnicos();return}
   if(t.dataset.edt){const x=d.L.tec[t.dataset.edt];if(!x)return;editT=x.id;$('#t-nombre').value=x.nombre||'';$('#t-cargo').value=x.cargo||'';$('#t-tel').value=x.tel||'';$('#t-add').textContent='Guardar cambios';$('#t-cancel').hidden=false;renderTecnicos();$('#t-nombre').focus();return}
   if(t.dataset.delt){arm(t,'Confirmar',()=>{delL(d,'tec',t.dataset.delt);if(editT===t.dataset.delt)limpiarT();renderTecnicos()});return}
+  if(t.id==='e-cons-add'){$('#e-cons').insertAdjacentHTML('beforeend',consRow({}));return}
+  if(t.classList.contains('c-del')){const r=t.closest('.consrow');if(document.querySelectorAll('#e-cons .consrow').length>1)r.remove();else r.querySelectorAll('input').forEach(i=>i.value='');return}
+  if(t.id==='e-add'){const marca=$('#e-marca').value.trim(),modelo=$('#e-modelo').value.trim(),cant=$('#e-cant').value.trim()||'1';
+    if(!marca&&!modelo){$('#e-marca').focus();toast('Indique al menos la marca o el modelo.');return}
+    if(!/^\d+$/.test(cant)){$('#e-cant').classList.add('bad');$('#e-cant').focus();toast('La cantidad debe ser un número entero.');return}
+    const tipo=$('#e-tipo').value;const cons=IMPRIME.has(tipo)?leerCons():[];
+    if(cons.some(c=>(c.stock&&!/^\d+$/.test(c.stock))||(c.nec&&!/^\d+$/.test(c.nec)))){toast('Stock y necesarias deben ser números enteros.');return}
+    $('#e-cant').classList.remove('bad');
+    putL(d,'eq',{id:editE||uid('e'),tipo,marca,modelo,cantidad:cant,estado:$('#e-estado').value,ubic:$('#e-ubic').value.trim(),cons});
+    toast(editE?'Equipo actualizado':`Equipo añadido${IMPRIME.has(tipo)&&!cons.length?'. Falta la referencia del consumible.':''}`);limpiarE();renderInventario();return}
+  if(t.id==='e-cancel'){limpiarE();renderInventario();return}
+  if(t.dataset.ede){const x=d.L.eq[t.dataset.ede];if(!x)return;editE=x.id;$('#e-tipo').value=x.tipo;$('#e-marca').value=x.marca||'';$('#e-modelo').value=x.modelo||'';$('#e-cant').value=x.cantidad||'1';$('#e-estado').value=x.estado||'Operativo';$('#e-ubic').value=x.ubic||'';
+    toggleCons();consForm(x.cons||[]);$('#e-add').textContent='Guardar cambios';$('#e-cancel').hidden=false;renderInventario();document.getElementById('sec-inventario').scrollIntoView({block:'start'});return}
+  if(t.dataset.dele){arm(t,'Confirmar',()=>{delL(d,'eq',t.dataset.dele);if(editE===t.dataset.dele)limpiarE();renderInventario()});return}
   if(t.id==='h-add'){const h=leerH();if(!h.desc){$('#h-desc').focus();return}
     const prev=editH&&d.L.hal[editH];putL(d,'hal',Object.assign({id:editH||uid('h'),creado:prev?prev.creado:Date.now()},h));toast(editH?'Hallazgo actualizado':'Hallazgo añadido');limpiarH();renderHallazgos();refreshCounts();renderSide();return}
   if(t.id==='h-cancel'){limpiarH();renderHallazgos();return}
