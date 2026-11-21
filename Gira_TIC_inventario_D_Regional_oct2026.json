@@ -1,0 +1,2909 @@
+{
+ "app": "gira-tic-inseso",
+ "version": 3,
+ "exportado": "2026-11-21T05:04:58.000Z",
+ "por": "Inventario D. Regional oct. 2026",
+ "oficinas": {
+  "bata": {
+   "id": "bata",
+   "f": {
+    "nombre": {
+     "v": "Delegación Regional (Bata)",
+     "t": 0,
+     "a": "Plantilla"
+    },
+    "localidad": {
+     "v": "Bata",
+     "t": 0,
+     "a": "Plantilla"
+    },
+    "etapa": {
+     "v": "Región Continental",
+     "t": 0,
+     "a": "Plantilla"
+    },
+    "contingencia": {
+     "v": true,
+     "t": 0,
+     "a": "Plantilla"
+    },
+    "estado": {
+     "v": "Pendiente",
+     "t": 0,
+     "a": "Plantilla"
+    }
+   },
+   "L": {
+    "tec": {
+     "t-inv-001": {
+      "id": "t-inv-001",
+      "nombre": "Marcelino Ovono Abeso",
+      "cargo": "Jefe Regional de Informática",
+      "tel": "",
+      "t": 1795237498670,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    },
+    "hal": {
+     "h-inv-001": {
+      "id": "h-inv-001",
+      "nivel": "Alto",
+      "area": "Equipos",
+      "desc": "Según el inventario de oct. 2026 hay 38 PC con Windows 7, sin soporte ni parches de seguridad desde 2020.",
+      "acc": "Confirmar en la visita y proponer su renovación o actualización.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498671,
+      "t": 1795237498671,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-002": {
+      "id": "h-inv-002",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "26 equipos figuran como averiados o de baja en el inventario: pc de sobremesa HP 100 Desktop (Admín de discapacitados); pc de sobremesa HP ProDesk 400 G1 (Admín de discapacitados); impresora HP LaserJet P2055dn (Sed); pc de sobremesa HP 100 Desktop (Recepción); pc de sobremesa HP 100 Desktop (Recepción); impresora HP LaserJet P2055dn (Servicios medicos admon); pc de sobremesa HP ProDesk 400 G1 (Afiliación militar); pc de sobremesa HP ProDesk 400 G1 (Afiliación militar)….",
+      "acc": "Comprobar cada uno y decidir reparación o baja patrimonial.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498672,
+      "t": 1795237498672,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-003": {
+      "id": "h-inv-003",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "40 de 149 equipos sin nombre definitivo o sin número de serie en el inventario.",
+      "acc": "Tomar en la visita el nombre y el número de serie de cada equipo y etiquetarlos.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498673,
+      "t": 1795237498673,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-004": {
+      "id": "h-inv-004",
+      "nivel": "Bajo",
+      "area": "Impresoras",
+      "desc": "16 impresoras o multifunciones sin referencia de consumible en el inventario.",
+      "acc": "Anotar en la visita la referencia del tóner o cartucho de cada una.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498674,
+      "t": 1795237498674,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-005": {
+      "id": "h-inv-005",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "18 registros del inventario no se han cargado por estar repetidos, sin modelo o con destino por confirmar: fila 56: PC-INSESO-0937 (serie repetida en dos oficinas: ubicación real por confirmar); fila 61: IM-INSESO-010 (serie repetida en dos oficinas: ubicación real por confirmar); fila 66: PC-INSESO-0580 (sin marca ni modelo); fila 67: PC-INSESO-0958 (sin marca ni modelo); fila 83: PC-INSESO-XXXX (duplicado de la fila 74); fila 106: IM-INSESO-XXXX (sin marca ni modelo); fila 145: PC-INSESO-1085 (sin marca ni modelo); fila 156: ALL-IN-ONE (sin marca ni modelo)….",
+      "acc": "Aclarar en la visita dónde está realmente cada equipo.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498675,
+      "t": 1795237498675,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    },
+    "fot": {},
+    "eq": {
+     "e-inv-001": {
+      "id": "e-inv-001",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "100 Desktop",
+      "cantidad": "3",
+      "estado": "Averiado",
+      "ubic": "Admín de discapacitados, Recepción",
+      "cons": [],
+      "t": 1795237498532,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-002": {
+      "id": "e-inv-002",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk 400 G1",
+      "cantidad": "7",
+      "estado": "Operativo",
+      "ubic": "Admín de discapacitados, Servicios medicos admon, Prestaciones sociales",
+      "cons": [],
+      "t": 1795237498533,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-003": {
+      "id": "e-inv-003",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk 400 G1",
+      "cantidad": "4",
+      "estado": "Averiado",
+      "ubic": "Admín de discapacitados, Afiliación militar, Prestaciones sociales",
+      "cons": [],
+      "t": 1795237498534,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-004": {
+      "id": "e-inv-004",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet P2055dn",
+      "cantidad": "4",
+      "estado": "Averiado",
+      "ubic": "Sed, Servicios medicos admon, Prestaciones sociales, Consejeros y asesoría jurídica",
+      "cons": [
+       {
+        "ref": "CE505A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498535,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-005": {
+      "id": "e-inv-005",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "All-in-One (modelo sin especificar)",
+      "cantidad": "4",
+      "estado": "Operativo",
+      "ubic": "Jefe regional de sed, Jefe de afiliación, Subsidio familiar, Prestaciones sociales",
+      "cons": [],
+      "t": 1795237498536,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-006": {
+      "id": "e-inv-006",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro M501",
+      "cantidad": "1",
+      "estado": "Operativo",
+      "ubic": "Jefe regional de sed",
+      "cons": [
+       {
+        "ref": "CF287A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498537,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-007": {
+      "id": "e-inv-007",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "LaserJet Pro MFP M428fdw",
+      "cantidad": "1",
+      "estado": "Operativo",
+      "ubic": "Servicios medicos admon",
+      "cons": [
+       {
+        "ref": "CF258A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498538,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-008": {
+      "id": "e-inv-008",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro 400",
+      "cantidad": "1",
+      "estado": "Operativo",
+      "ubic": "Afiliación militar",
+      "cons": [
+       {
+        "ref": "CF280A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498539,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-009": {
+      "id": "e-inv-009",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "Color LaserJet Pro 400",
+      "cantidad": "1",
+      "estado": "Operativo",
+      "ubic": "Jefe de afiliación",
+      "cons": [
+       {
+        "ref": "CE410A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "CE411A",
+        "tipo": "Tóner cian",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "CE412A",
+        "tipo": "Tóner amarillo",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "CE413A",
+        "tipo": "Tóner magenta",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498540,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-010": {
+      "id": "e-inv-010",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk G1 SFF",
+      "cantidad": "5",
+      "estado": "Operativo",
+      "ubic": "Jefe de afiliación, Control de afiliacion, Atension al asegurado",
+      "cons": [],
+      "t": 1795237498541,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-011": {
+      "id": "e-inv-011",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Compaq Pro 4300",
+      "cantidad": "1",
+      "estado": "Averiado",
+      "ubic": "Jefe de afiliación",
+      "cons": [],
+      "t": 1795237498542,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-012": {
+      "id": "e-inv-012",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk 400 G4",
+      "cantidad": "3",
+      "estado": "Operativo",
+      "ubic": "Jefe de afiliación, Atension al asegurado, Caja regional",
+      "cons": [],
+      "t": 1795237498543,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-013": {
+      "id": "e-inv-013",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk G1 SFF",
+      "cantidad": "1",
+      "estado": "Averiado",
+      "ubic": "Control de afiliacion",
+      "cons": [],
+      "t": 1795237498544,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-014": {
+      "id": "e-inv-014",
+      "tipo": "Escáner",
+      "marca": "Fujitsu",
+      "modelo": "Escáner (modelo sin especificar)",
+      "cantidad": "2",
+      "estado": "Operativo",
+      "ubic": "Atension al asegurado",
+      "cons": [],
+      "t": 1795237498545,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-015": {
+      "id": "e-inv-015",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro 400",
+      "cantidad": "1",
+      "estado": "Averiado",
+      "ubic": "Atension al asegurado",
+      "cons": [
+       {
+        "ref": "CF280A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498546,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-016": {
+      "id": "e-inv-016",
+      "tipo": "Impresora",
+      "marca": "Epson",
+      "modelo": "Matricial (modelo sin especificar)",
+      "cantidad": "1",
+      "estado": "Operativo",
+      "ubic": "Atension al asegurado",
+      "cons": [],
+      "t": 1795237498547,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-017": {
+      "id": "e-inv-017",
+      "tipo": "Impresora de carnés",
+      "marca": "Evolis",
+      "modelo": "Primacy",
+      "cantidad": "2",
+      "estado": "Averiado",
+      "ubic": "Atension al asegurado",
+      "cons": [],
+      "t": 1795237498548,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-018": {
+      "id": "e-inv-018",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk (generación sin especificar)",
+      "cantidad": "3",
+      "estado": "Operativo",
+      "ubic": "Subsidio familiar",
+      "cons": [],
+      "t": 1795237498549,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-019": {
+      "id": "e-inv-019",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro M402",
+      "cantidad": "1",
+      "estado": "Averiado",
+      "ubic": "Subsidio familiar",
+      "cons": [
+       {
+        "ref": "CF226A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498550,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-020": {
+      "id": "e-inv-020",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro M402",
+      "cantidad": "3",
+      "estado": "Sin verificar",
+      "ubic": "Estadistica y control interno, Recursos humanos (rr.hh), Secrt. gabinete y relac. públicas",
+      "cons": [
+       {
+        "ref": "CF226A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498551,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-021": {
+      "id": "e-inv-021",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "All-in-One (modelo sin especificar)",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Administrador regional, Unidad de informatica",
+      "cons": [],
+      "t": 1795237498552,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-022": {
+      "id": "e-inv-022",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "Color LaserJet Pro MFP M477fnw",
+      "cantidad": "4",
+      "estado": "Sin verificar",
+      "ubic": "Administrador regional, Secretario/a regional, Jefa regional de control externo, Sala tecnica de informatica",
+      "cons": [
+       {
+        "ref": "CF410A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "CF411A",
+        "tipo": "Tóner cian",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "CF412A",
+        "tipo": "Tóner amarillo",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "CF413A",
+        "tipo": "Tóner magenta",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498553,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-023": {
+      "id": "e-inv-023",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk 400 G2",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Administrador regional, Contabilidad",
+      "cons": [],
+      "t": 1795237498554,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-024": {
+      "id": "e-inv-024",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk 400 G1",
+      "cantidad": "8",
+      "estado": "Sin verificar",
+      "ubic": "Control de patrimonio, Controladores, Jefatura inspectores, Control de cotizaciones, Secc. servicios medicos, Inspeccion y auditorias internas",
+      "cons": [],
+      "t": 1795237498555,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-025": {
+      "id": "e-inv-025",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk 400 G6",
+      "cantidad": "3",
+      "estado": "Sin verificar",
+      "ubic": "Control de patrimonio, Inspeccion y auditorias internas, Unidad de informatica",
+      "cons": [],
+      "t": 1795237498556,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-026": {
+      "id": "e-inv-026",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk (generación sin especificar)",
+      "cantidad": "17",
+      "estado": "Sin verificar",
+      "ubic": "Control de patrimonio, Jefe contable, Contabilidad, Recaudaciones, Recursos humanos (rr.hh), Control de presupuestos, Delegado adjunto…",
+      "cons": [],
+      "t": 1795237498557,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-027": {
+      "id": "e-inv-027",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet P2055dn",
+      "cantidad": "3",
+      "estado": "Sin verificar",
+      "ubic": "Control de patrimonio, Control de cotizaciones, Secc. servicios medicos",
+      "cons": [
+       {
+        "ref": "CE505A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498558,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-028": {
+      "id": "e-inv-028",
+      "tipo": "Multifunción",
+      "marca": "Samsung",
+      "modelo": "SCX-4623",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Control de patrimonio",
+      "cons": [],
+      "t": 1795237498559,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-029": {
+      "id": "e-inv-029",
+      "tipo": "Multifunción",
+      "marca": "Samsung",
+      "modelo": "SCX-4521F",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Jefe contable, Secretaria coord. adminstrativa",
+      "cons": [],
+      "t": 1795237498560,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-030": {
+      "id": "e-inv-030",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk 400 G4",
+      "cantidad": "6",
+      "estado": "Sin verificar",
+      "ubic": "Jefe contable, Recaudaciones, Secretaria coord. adminstrativa, Consejeros y asesoría jurídica, Seccion de control interno, Jefa regional de control externo",
+      "cons": [],
+      "t": 1795237498561,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-031": {
+      "id": "e-inv-031",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro 400 M401",
+      "cantidad": "4",
+      "estado": "Sin verificar",
+      "ubic": "Contabilidad, Control de presupuestos, Controladores, Inspeccion y auditorias internas",
+      "cons": [
+       {
+        "ref": "CF280A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498562,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-032": {
+      "id": "e-inv-032",
+      "tipo": "Fotocopiadora",
+      "marca": "Canon",
+      "modelo": "imageRUNNER 1113 (modelo por verificar)",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Contabilidad, Secretaria coord. adminstrativa",
+      "cons": [],
+      "t": 1795237498563,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-033": {
+      "id": "e-inv-033",
+      "tipo": "Impresora",
+      "marca": "Epson",
+      "modelo": "LQ-300+II",
+      "cantidad": "3",
+      "estado": "Sin verificar",
+      "ubic": "Contabilidad, Recaudaciones",
+      "cons": [],
+      "t": 1795237498564,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-034": {
+      "id": "e-inv-034",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro 400",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Recaudaciones",
+      "cons": [],
+      "t": 1795237498565,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-035": {
+      "id": "e-inv-035",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Pro 3130 MT",
+      "cantidad": "3",
+      "estado": "Sin verificar",
+      "ubic": "Recursos humanos (rr.hh), Control de presupuestos, Unidad de informatica",
+      "cons": [],
+      "t": 1795237498566,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-036": {
+      "id": "e-inv-036",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "110 Desktop",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Recursos humanos (rr.hh), Controladores",
+      "cons": [],
+      "t": 1795237498567,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-037": {
+      "id": "e-inv-037",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "All-in-One G3 Core i3",
+      "cantidad": "4",
+      "estado": "Sin verificar",
+      "ubic": "Jefe de servicios tecnicos, Jefe de servicios medicos, Delegado adjunto, Secrt. gabinete y relac. públicas",
+      "cons": [],
+      "t": 1795237498568,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-038": {
+      "id": "e-inv-038",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "Color LaserJet Pro MFP M283",
+      "cantidad": "3",
+      "estado": "Sin verificar",
+      "ubic": "Jefe de servicios tecnicos, Interventor regional, Jefe regional suministros hospitalarios",
+      "cons": [
+       {
+        "ref": "W2210A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "W2211A",
+        "tipo": "Tóner cian",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "W2212A",
+        "tipo": "Tóner amarillo",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "W2213A",
+        "tipo": "Tóner magenta",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498569,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-039": {
+      "id": "e-inv-039",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "Envy 7640",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Jefe de servicios medicos",
+      "cons": [
+       {
+        "ref": "HP 62 negro",
+        "tipo": "Cartucho de tinta negro",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "HP 62 tricolor",
+        "tipo": "Cartucho de tinta color",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498570,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-040": {
+      "id": "e-inv-040",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro M501",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Secretaria coord. adminstrativa",
+      "cons": [
+       {
+        "ref": "CF287A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498571,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-041": {
+      "id": "e-inv-041",
+      "tipo": "Multifunción",
+      "marca": "Samsung",
+      "modelo": "SCX-4521F",
+      "cantidad": "1",
+      "estado": "Averiado",
+      "ubic": "Secretaria coord. adminstrativa",
+      "cons": [],
+      "t": 1795237498572,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-042": {
+      "id": "e-inv-042",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Compaq dc5850",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Secretario/a regional, Inspeccion y auditorias internas",
+      "cons": [],
+      "t": 1795237498573,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-043": {
+      "id": "e-inv-043",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk 400 G3",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Secretario/a regional",
+      "cons": [],
+      "t": 1795237498574,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-044": {
+      "id": "e-inv-044",
+      "tipo": "Multifunción",
+      "marca": "Brother",
+      "modelo": "DCP-L2530DW",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Secrt. gabinete y relac. públicas",
+      "cons": [
+       {
+        "ref": "TN-2410",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498575,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-045": {
+      "id": "e-inv-045",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "290 G1 MT",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Consejeros y asesoría jurídica",
+      "cons": [],
+      "t": 1795237498576,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-046": {
+      "id": "e-inv-046",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Compaq dc5850",
+      "cantidad": "1",
+      "estado": "Operativo",
+      "ubic": "Consejeros y asesoría jurídica",
+      "cons": [],
+      "t": 1795237498577,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-047": {
+      "id": "e-inv-047",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "Smart Tank 615",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Consejeros y asesoría jurídica",
+      "cons": [
+       {
+        "ref": "GT52",
+        "tipo": "Cartucho de tinta color",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498578,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-048": {
+      "id": "e-inv-048",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Compaq dc5850",
+      "cantidad": "3",
+      "estado": "Averiado",
+      "ubic": "Controladores, Unidad de informatica",
+      "cons": [],
+      "t": 1795237498579,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-049": {
+      "id": "e-inv-049",
+      "tipo": "Multifunción",
+      "marca": "Dell",
+      "modelo": "2335dn MFP",
+      "cantidad": "1",
+      "estado": "Averiado",
+      "ubic": "Jefatura inspectores",
+      "cons": [
+       {
+        "ref": "CR963",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498580,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-050": {
+      "id": "e-inv-050",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProOne 240 G10 AiO 23,8\"",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Jefa regional de control externo, Interventor regional",
+      "cons": [],
+      "t": 1795237498581,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-051": {
+      "id": "e-inv-051",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Compaq Pro 6300 MT",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Inspector rnal de servicios y auditoria interna, Secc. servicios medicos",
+      "cons": [],
+      "t": 1795237498582,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-052": {
+      "id": "e-inv-052",
+      "tipo": "Multifunción",
+      "marca": "Samsung",
+      "modelo": "Xpress M2675F",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Inspeccion y auditorias internas",
+      "cons": [],
+      "t": 1795237498583,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-053": {
+      "id": "e-inv-053",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "Color LaserJet Pro MFP M477fnw",
+      "cantidad": "1",
+      "estado": "Averiado",
+      "ubic": "Inspeccion y auditorias internas",
+      "cons": [],
+      "t": 1795237498584,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-054": {
+      "id": "e-inv-054",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "Color LaserJet CP2025",
+      "cantidad": "2",
+      "estado": "Averiado",
+      "ubic": "Inspeccion y auditorias internas",
+      "cons": [],
+      "t": 1795237498585,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-055": {
+      "id": "e-inv-055",
+      "tipo": "Multifunción",
+      "marca": "Dell",
+      "modelo": "2335dn MFP",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Inspeccion y auditorias internas",
+      "cons": [
+       {
+        "ref": "CR963",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498586,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-056": {
+      "id": "e-inv-056",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro M501",
+      "cantidad": "1",
+      "estado": "Averiado",
+      "ubic": "Inspeccion y auditorias internas",
+      "cons": [],
+      "t": 1795237498587,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-057": {
+      "id": "e-inv-057",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "LaserJet Pro MFP 4103fdn",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Inspeccion y auditorias internas",
+      "cons": [
+       {
+        "ref": "W1510A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498588,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-058": {
+      "id": "e-inv-058",
+      "tipo": "Servidor",
+      "marca": "HP",
+      "modelo": "Z400 Workstation",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Inspeccion y auditorias internas",
+      "cons": [],
+      "t": 1795237498589,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-059": {
+      "id": "e-inv-059",
+      "tipo": "Servidor",
+      "marca": "HP",
+      "modelo": "Z420 Workstation",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Unidad de informatica",
+      "cons": [],
+      "t": 1795237498590,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-060": {
+      "id": "e-inv-060",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk 400 G2.5 SFF",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Jefe regional de informatica",
+      "cons": [],
+      "t": 1795237498591,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-061": {
+      "id": "e-inv-061",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "Color LaserJet Pro MFP M181fw",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Jefe regional de informatica",
+      "cons": [
+       {
+        "ref": "CF530A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "CF531A",
+        "tipo": "Tóner cian",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "CF532A",
+        "tipo": "Tóner amarillo",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "CF533A",
+        "tipo": "Tóner magenta",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498592,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-062": {
+      "id": "e-inv-062",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "Color LaserJet Pro MFP M183fw",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Sala tecnica de informatica",
+      "cons": [
+       {
+        "ref": "W2410A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "W2411A",
+        "tipo": "Tóner cian",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "W2412A",
+        "tipo": "Tóner amarillo",
+        "stock": "",
+        "nec": ""
+       },
+       {
+        "ref": "W2413A",
+        "tipo": "Tóner magenta",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498593,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    }
+   },
+   "borrado": null
+  },
+  "inv-bata-uuh": {
+   "id": "inv-bata-uuh",
+   "f": {
+    "nombre": {
+     "v": "Unidad de Urgencias Hospitalarias (Bata)",
+     "t": 1795237498524,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "localidad": {
+     "v": "Bata",
+     "t": 1795237498524,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "etapa": {
+     "v": "Región Continental",
+     "t": 1795237498524,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "contingencia": {
+     "v": false,
+     "t": 1795237498524,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "estado": {
+     "v": "Pendiente",
+     "t": 1795237498524,
+     "a": "Inventario D. Regional oct. 2026"
+    }
+   },
+   "L": {
+    "tec": {},
+    "hal": {
+     "h-inv-001": {
+      "id": "h-inv-001",
+      "nivel": "Alto",
+      "area": "Equipos",
+      "desc": "Según el inventario de oct. 2026 hay 6 PC con Windows 7, sin soporte ni parches de seguridad desde 2020.",
+      "acc": "Confirmar en la visita y proponer su renovación o actualización.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498676,
+      "t": 1795237498676,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-002": {
+      "id": "h-inv-002",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "4 equipos figuran como averiados o de baja en el inventario: multifunción Dell 2335dn MFP (Caja/inhabilitacion); pc de sobremesa HP ProDesk 400 G3 (Admision de uuh); impresora HP LaserJet P2055dn (Almacen uuh); multifunción HP LaserJet Pro MFP M130 (Direccion del centro).",
+      "acc": "Comprobar cada uno y decidir reparación o baja patrimonial.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498677,
+      "t": 1795237498677,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-003": {
+      "id": "h-inv-003",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "1 de 14 equipos sin nombre definitivo o sin número de serie en el inventario.",
+      "acc": "Tomar en la visita el nombre y el número de serie de cada equipo y etiquetarlos.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498678,
+      "t": 1795237498678,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-004": {
+      "id": "h-inv-004",
+      "nivel": "Bajo",
+      "area": "Impresoras",
+      "desc": "6 impresoras o multifunciones sin referencia de consumible en el inventario.",
+      "acc": "Anotar en la visita la referencia del tóner o cartucho de cada una.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498679,
+      "t": 1795237498679,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-005": {
+      "id": "h-inv-005",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "4 registros del inventario no se han cargado por estar repetidos, sin modelo o con destino por confirmar: fila 218: PC-INSESO-1001 (duplicado de la fila 214); fila 219: PC-INSESO-0937 (serie repetida en dos oficinas: ubicación real por confirmar); fila 220: IN-INSESO- (serie repetida en dos oficinas: ubicación real por confirmar); fila 221: PC-INSESO-0861 (sin marca ni modelo).",
+      "acc": "Aclarar en la visita dónde está realmente cada equipo.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498680,
+      "t": 1795237498680,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    },
+    "fot": {},
+    "eq": {
+     "e-inv-001": {
+      "id": "e-inv-001",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk 400 G3",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Administrador, Departamento sis",
+      "cons": [],
+      "t": 1795237498594,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-002": {
+      "id": "e-inv-002",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet P1102",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Administrador",
+      "cons": [],
+      "t": 1795237498595,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-003": {
+      "id": "e-inv-003",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "110 Desktop",
+      "cantidad": "3",
+      "estado": "Sin verificar",
+      "ubic": "Secretario, Habilitacion (caja), Unidad de informatica",
+      "cons": [],
+      "t": 1795237498596,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-004": {
+      "id": "e-inv-004",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro MFP M426",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Secretario",
+      "cons": [],
+      "t": 1795237498597,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-005": {
+      "id": "e-inv-005",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Compaq dc5850",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Contabilidad",
+      "cons": [],
+      "t": 1795237498598,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-006": {
+      "id": "e-inv-006",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro M102",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Contabilidad",
+      "cons": [
+       {
+        "ref": "CF217A",
+        "tipo": "Tóner negro",
+        "stock": "",
+        "nec": ""
+       }
+      ],
+      "t": 1795237498599,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-007": {
+      "id": "e-inv-007",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "Smart Tank 720",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Caja/habilitacion",
+      "cons": [],
+      "t": 1795237498600,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-008": {
+      "id": "e-inv-008",
+      "tipo": "Multifunción",
+      "marca": "Dell",
+      "modelo": "2335dn MFP",
+      "cantidad": "1",
+      "estado": "Obsoleto",
+      "ubic": "Caja/inhabilitacion",
+      "cons": [],
+      "t": 1795237498601,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-009": {
+      "id": "e-inv-009",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk 400 G3",
+      "cantidad": "1",
+      "estado": "Obsoleto",
+      "ubic": "Admision de uuh",
+      "cons": [],
+      "t": 1795237498602,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-010": {
+      "id": "e-inv-010",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet P2055dn",
+      "cantidad": "1",
+      "estado": "Obsoleto",
+      "ubic": "Almacen uuh",
+      "cons": [],
+      "t": 1795237498603,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-011": {
+      "id": "e-inv-011",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "LaserJet Pro MFP M130",
+      "cantidad": "1",
+      "estado": "Obsoleto",
+      "ubic": "Direccion del centro",
+      "cons": [],
+      "t": 1795237498604,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    }
+   },
+   "borrado": null
+  },
+  "inv-ebebiyin-centro-social": {
+   "id": "inv-ebebiyin-centro-social",
+   "f": {
+    "nombre": {
+     "v": "Centro Social de Kié-Ntem (Ebebiyin)",
+     "t": 1795237498525,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "localidad": {
+     "v": "Ebebiyin",
+     "t": 1795237498525,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "etapa": {
+     "v": "Región Continental",
+     "t": 1795237498525,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "contingencia": {
+     "v": false,
+     "t": 1795237498525,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "estado": {
+     "v": "Pendiente",
+     "t": 1795237498525,
+     "a": "Inventario D. Regional oct. 2026"
+    }
+   },
+   "L": {
+    "tec": {},
+    "hal": {
+     "h-inv-001": {
+      "id": "h-inv-001",
+      "nivel": "Alto",
+      "area": "Equipos",
+      "desc": "Según el inventario de oct. 2026 hay 3 PC con Windows 7, sin soporte ni parches de seguridad desde 2020.",
+      "acc": "Confirmar en la visita y proponer su renovación o actualización.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498681,
+      "t": 1795237498681,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-002": {
+      "id": "h-inv-002",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "2 equipos figuran como averiados o de baja en el inventario: pc de sobremesa HP Compaq dc5850 (Consultorio Medico); pc de sobremesa HP ProDesk 400 G2 (Secretaria Csocial).",
+      "acc": "Comprobar cada uno y decidir reparación o baja patrimonial.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498682,
+      "t": 1795237498682,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-003": {
+      "id": "h-inv-003",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "8 de 13 equipos sin nombre definitivo o sin número de serie en el inventario.",
+      "acc": "Tomar en la visita el nombre y el número de serie de cada equipo y etiquetarlos.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498683,
+      "t": 1795237498683,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-004": {
+      "id": "h-inv-004",
+      "nivel": "Bajo",
+      "area": "Impresoras",
+      "desc": "5 impresoras o multifunciones sin referencia de consumible en el inventario.",
+      "acc": "Anotar en la visita la referencia del tóner o cartucho de cada una.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498684,
+      "t": 1795237498684,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    },
+    "fot": {},
+    "eq": {
+     "e-inv-001": {
+      "id": "e-inv-001",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Compaq dc5850",
+      "cantidad": "1",
+      "estado": "Averiado",
+      "ubic": "Consultorio Medico",
+      "cons": [],
+      "t": 1795237498605,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-002": {
+      "id": "e-inv-002",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk 400 G3",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Cuarto de Enfermeria",
+      "cons": [],
+      "t": 1795237498606,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-003": {
+      "id": "e-inv-003",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk 400 G6",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Laboratorio, Contabilidad Csocial",
+      "cons": [],
+      "t": 1795237498607,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-004": {
+      "id": "e-inv-004",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro M501",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Laboratorio, Secretaria Csocial",
+      "cons": [],
+      "t": 1795237498608,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-005": {
+      "id": "e-inv-005",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Pro 3130 MT",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Director Csocial",
+      "cons": [],
+      "t": 1795237498609,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-006": {
+      "id": "e-inv-006",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro 400 M401a",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Director Csocial",
+      "cons": [],
+      "t": 1795237498610,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-007": {
+      "id": "e-inv-007",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk 400 G2",
+      "cantidad": "1",
+      "estado": "Averiado",
+      "ubic": "Secretaria Csocial",
+      "cons": [],
+      "t": 1795237498611,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-008": {
+      "id": "e-inv-008",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "110 Desktop",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Administrador Csocial",
+      "cons": [],
+      "t": 1795237498612,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-009": {
+      "id": "e-inv-009",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "Color LaserJet Pro MFP M181fw",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Administrador Csocial",
+      "cons": [],
+      "t": 1795237498613,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-010": {
+      "id": "e-inv-010",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Compaq Elite 8300 CMT",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Almacen Csocial",
+      "cons": [],
+      "t": 1795237498614,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-011": {
+      "id": "e-inv-011",
+      "tipo": "Impresora",
+      "marca": "Canon",
+      "modelo": "Modelo sin especificar",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Contabiidad Csocial",
+      "cons": [],
+      "t": 1795237498615,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    }
+   },
+   "borrado": null
+  },
+  "inv-ebebiyin-delegacion-provincial": {
+   "id": "inv-ebebiyin-delegacion-provincial",
+   "f": {
+    "nombre": {
+     "v": "Delegación Provincial de Kié-Ntem (Ebebiyin)",
+     "t": 1795237498526,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "localidad": {
+     "v": "Ebebiyin",
+     "t": 1795237498526,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "etapa": {
+     "v": "Región Continental",
+     "t": 1795237498526,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "contingencia": {
+     "v": false,
+     "t": 1795237498526,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "estado": {
+     "v": "Pendiente",
+     "t": 1795237498526,
+     "a": "Inventario D. Regional oct. 2026"
+    }
+   },
+   "L": {
+    "tec": {},
+    "hal": {
+     "h-inv-001": {
+      "id": "h-inv-001",
+      "nivel": "Alto",
+      "area": "Equipos",
+      "desc": "Según el inventario de oct. 2026 hay 4 PC con Windows 7, sin soporte ni parches de seguridad desde 2020.",
+      "acc": "Confirmar en la visita y proponer su renovación o actualización.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498685,
+      "t": 1795237498685,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-002": {
+      "id": "h-inv-002",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "2 equipos figuran como averiados o de baja en el inventario: pc de sobremesa HP Pro 3130 MT (Subsidio famiiar); pc de sobremesa HP Compaq dc5850 (Control de presuuestos).",
+      "acc": "Comprobar cada uno y decidir reparación o baja patrimonial.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498686,
+      "t": 1795237498686,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-003": {
+      "id": "h-inv-003",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "15 de 18 equipos sin nombre definitivo o sin número de serie en el inventario.",
+      "acc": "Tomar en la visita el nombre y el número de serie de cada equipo y etiquetarlos.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498687,
+      "t": 1795237498687,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-004": {
+      "id": "h-inv-004",
+      "nivel": "Bajo",
+      "area": "Impresoras",
+      "desc": "6 impresoras o multifunciones sin referencia de consumible en el inventario.",
+      "acc": "Anotar en la visita la referencia del tóner o cartucho de cada una.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498688,
+      "t": 1795237498688,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-005": {
+      "id": "h-inv-005",
+      "nivel": "Medio",
+      "area": "Impresoras",
+      "desc": "Impresoras sin tóner o tinta según el inventario: HP LaserJet P2055dn (Subsidio famiiar).",
+      "acc": "Confirmar y solicitar los consumibles.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498689,
+      "t": 1795237498689,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-006": {
+      "id": "h-inv-006",
+      "nivel": "Alto",
+      "area": "Energía",
+      "desc": "El inventario anota «sin electricidad» o «sin luz» en 1 equipos.",
+      "acc": "Comprobar el suministro eléctrico y la protección (SAI) de los puestos.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498690,
+      "t": 1795237498690,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    },
+    "fot": {},
+    "eq": {
+     "e-inv-001": {
+      "id": "e-inv-001",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Compaq CQ2903es",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Contabilidad Recaudacion, SECRETARIA Provincial",
+      "cons": [],
+      "t": 1795237498616,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-002": {
+      "id": "e-inv-002",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "LaserJet Pro MFP M426",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Contabilidad Recaudacion, SECRETARIA Provincial",
+      "cons": [],
+      "t": 1795237498617,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-003": {
+      "id": "e-inv-003",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "110 Desktop",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "PRESTACIONES Csial, Servcio SED",
+      "cons": [],
+      "t": 1795237498618,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-004": {
+      "id": "e-inv-004",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Pro 3130 MT",
+      "cantidad": "3",
+      "estado": "Sin verificar",
+      "ubic": "Afiliacion, Subsidio famiiar, Control de presuuestos",
+      "cons": [],
+      "t": 1795237498619,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-005": {
+      "id": "e-inv-005",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet P2055dn",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Subsidio famiiar",
+      "cons": [],
+      "t": 1795237498620,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-006": {
+      "id": "e-inv-006",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Pro 3130 MT",
+      "cantidad": "1",
+      "estado": "Averiado",
+      "ubic": "Subsidio famiiar",
+      "cons": [],
+      "t": 1795237498621,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-007": {
+      "id": "e-inv-007",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Compaq Elite 8300 CMT",
+      "cantidad": "3",
+      "estado": "Sin verificar",
+      "ubic": "Informatica, Afiliacion miitar, Patrimonio",
+      "cons": [],
+      "t": 1795237498622,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-008": {
+      "id": "e-inv-008",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "LaserJet Pro MFP M227sdn",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Informatica",
+      "cons": [],
+      "t": 1795237498623,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-009": {
+      "id": "e-inv-009",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet P2015n",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Servicio SED",
+      "cons": [],
+      "t": 1795237498624,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-010": {
+      "id": "e-inv-010",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "LaserJet Pro MFP M130",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Control de presuuestos",
+      "cons": [],
+      "t": 1795237498625,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-011": {
+      "id": "e-inv-011",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Compaq dc5850",
+      "cantidad": "1",
+      "estado": "Averiado",
+      "ubic": "Control de presuuestos",
+      "cons": [],
+      "t": 1795237498626,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    }
+   },
+   "borrado": null
+  },
+  "inv-evinayong-delegacion-provincial": {
+   "id": "inv-evinayong-delegacion-provincial",
+   "f": {
+    "nombre": {
+     "v": "Delegación Provincial de Centro Sur (Evinayong)",
+     "t": 1795237498527,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "localidad": {
+     "v": "Evinayong",
+     "t": 1795237498527,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "etapa": {
+     "v": "Región Continental",
+     "t": 1795237498527,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "contingencia": {
+     "v": false,
+     "t": 1795237498527,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "estado": {
+     "v": "Pendiente",
+     "t": 1795237498527,
+     "a": "Inventario D. Regional oct. 2026"
+    }
+   },
+   "L": {
+    "tec": {},
+    "hal": {
+     "h-inv-001": {
+      "id": "h-inv-001",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "15 de 17 equipos sin nombre definitivo o sin número de serie en el inventario.",
+      "acc": "Tomar en la visita el nombre y el número de serie de cada equipo y etiquetarlos.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498691,
+      "t": 1795237498691,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-002": {
+      "id": "h-inv-002",
+      "nivel": "Bajo",
+      "area": "Impresoras",
+      "desc": "9 impresoras o multifunciones sin referencia de consumible en el inventario.",
+      "acc": "Anotar en la visita la referencia del tóner o cartucho de cada una.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498692,
+      "t": 1795237498692,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-003": {
+      "id": "h-inv-003",
+      "nivel": "Medio",
+      "area": "Impresoras",
+      "desc": "Impresoras sin tóner o tinta según el inventario: HP COLOR LASERJET CP2025 (Delegado provincial); DELL 2335dn (Delegado provincial).",
+      "acc": "Confirmar y solicitar los consumibles.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498693,
+      "t": 1795237498693,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    },
+    "fot": {},
+    "eq": {
+     "e-inv-001": {
+      "id": "e-inv-001",
+      "tipo": "PC de sobremesa",
+      "marca": "Lenovo",
+      "modelo": "V130-20IGM",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Control de empresas, Contabilidad y caja",
+      "cons": [],
+      "t": 1795237498627,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-002": {
+      "id": "e-inv-002",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro M102",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Control de empresas",
+      "cons": [],
+      "t": 1795237498628,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-003": {
+      "id": "e-inv-003",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "LaserJet Pro MFP M130",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Contabilidad y caja",
+      "cons": [],
+      "t": 1795237498629,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-004": {
+      "id": "e-inv-004",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "LaserJet Pro MFP M426",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Contabilidad y caja",
+      "cons": [],
+      "t": 1795237498630,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-005": {
+      "id": "e-inv-005",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Modelo sin especificar",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Estadisticas y patrimonio",
+      "cons": [],
+      "t": 1795237498631,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-006": {
+      "id": "e-inv-006",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro M501",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Estadisticas y patrimonio",
+      "cons": [],
+      "t": 1795237498632,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-007": {
+      "id": "e-inv-007",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Compaq dc5850",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Recursos humanos, Sed",
+      "cons": [],
+      "t": 1795237498633,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-008": {
+      "id": "e-inv-008",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro 400",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Recursos humanos, Secretaria provincial",
+      "cons": [],
+      "t": 1795237498634,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-009": {
+      "id": "e-inv-009",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Desktop Pro",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Delegado provincial",
+      "cons": [],
+      "t": 1795237498635,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-010": {
+      "id": "e-inv-010",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "Color LaserJet CP2025",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Delegado provincial",
+      "cons": [],
+      "t": 1795237498636,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-011": {
+      "id": "e-inv-011",
+      "tipo": "Multifunción",
+      "marca": "Canon",
+      "modelo": "PIXMA G2411",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Delegado provincial",
+      "cons": [],
+      "t": 1795237498637,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-012": {
+      "id": "e-inv-012",
+      "tipo": "Multifunción",
+      "marca": "Dell",
+      "modelo": "2335dn MFP",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Delegado provincial",
+      "cons": [],
+      "t": 1795237498638,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-013": {
+      "id": "e-inv-013",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk (generación sin especificar)",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Secretaria provincial",
+      "cons": [],
+      "t": 1795237498639,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-014": {
+      "id": "e-inv-014",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Pro 3130 MT",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Recepcion",
+      "cons": [],
+      "t": 1795237498640,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    }
+   },
+   "borrado": null
+  },
+  "inv-evinayong-centro-social": {
+   "id": "inv-evinayong-centro-social",
+   "f": {
+    "nombre": {
+     "v": "Centro Social de Centro Sur (Evinayong)",
+     "t": 1795237498528,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "localidad": {
+     "v": "Evinayong",
+     "t": 1795237498528,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "etapa": {
+     "v": "Región Continental",
+     "t": 1795237498528,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "contingencia": {
+     "v": false,
+     "t": 1795237498528,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "estado": {
+     "v": "Pendiente",
+     "t": 1795237498528,
+     "a": "Inventario D. Regional oct. 2026"
+    }
+   },
+   "L": {
+    "tec": {},
+    "hal": {
+     "h-inv-001": {
+      "id": "h-inv-001",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "1 equipos figuran como averiados o de baja en el inventario: multifunción HP DeskJet 2130 (Direccion del centro).",
+      "acc": "Comprobar cada uno y decidir reparación o baja patrimonial.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498694,
+      "t": 1795237498694,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-002": {
+      "id": "h-inv-002",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "10 de 12 equipos sin nombre definitivo o sin número de serie en el inventario.",
+      "acc": "Tomar en la visita el nombre y el número de serie de cada equipo y etiquetarlos.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498695,
+      "t": 1795237498695,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-003": {
+      "id": "h-inv-003",
+      "nivel": "Bajo",
+      "area": "Impresoras",
+      "desc": "6 impresoras o multifunciones sin referencia de consumible en el inventario.",
+      "acc": "Anotar en la visita la referencia del tóner o cartucho de cada una.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498696,
+      "t": 1795237498696,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    },
+    "fot": {},
+    "eq": {
+     "e-inv-001": {
+      "id": "e-inv-001",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk (generación sin especificar)",
+      "cantidad": "4",
+      "estado": "Sin verificar",
+      "ubic": "Enfermeria, Direccion del centro, Servicio",
+      "cons": [],
+      "t": 1795237498641,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-002": {
+      "id": "e-inv-002",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "LaserJet Pro MFP M26",
+      "cantidad": "4",
+      "estado": "Sin verificar",
+      "ubic": "Enfermeria, Admision, Servicio",
+      "cons": [],
+      "t": 1795237498642,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-003": {
+      "id": "e-inv-003",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "DeskJet 2130",
+      "cantidad": "1",
+      "estado": "Averiado",
+      "ubic": "Direccion del centro",
+      "cons": [],
+      "t": 1795237498643,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-004": {
+      "id": "e-inv-004",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Compaq dc5850",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Admision",
+      "cons": [],
+      "t": 1795237498644,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-005": {
+      "id": "e-inv-005",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Desktop (modelo sin especificar)",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Servicio",
+      "cons": [],
+      "t": 1795237498645,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-006": {
+      "id": "e-inv-006",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro M501",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Servicio",
+      "cons": [],
+      "t": 1795237498646,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    }
+   },
+   "borrado": null
+  },
+  "inv-oyala-delegacion-provincial": {
+   "id": "inv-oyala-delegacion-provincial",
+   "f": {
+    "nombre": {
+     "v": "Delegación Provincial de Djibloho (Oyala)",
+     "t": 1795237498529,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "localidad": {
+     "v": "Ciudad de la Paz (Oyala)",
+     "t": 1795237498529,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "etapa": {
+     "v": "Región Continental",
+     "t": 1795237498529,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "contingencia": {
+     "v": false,
+     "t": 1795237498529,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "estado": {
+     "v": "Pendiente",
+     "t": 1795237498529,
+     "a": "Inventario D. Regional oct. 2026"
+    }
+   },
+   "L": {
+    "tec": {},
+    "hal": {
+     "h-inv-001": {
+      "id": "h-inv-001",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "7 de 7 equipos sin nombre definitivo o sin número de serie en el inventario.",
+      "acc": "Tomar en la visita el nombre y el número de serie de cada equipo y etiquetarlos.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498697,
+      "t": 1795237498697,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-002": {
+      "id": "h-inv-002",
+      "nivel": "Bajo",
+      "area": "Impresoras",
+      "desc": "3 impresoras o multifunciones sin referencia de consumible en el inventario.",
+      "acc": "Anotar en la visita la referencia del tóner o cartucho de cada una.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498698,
+      "t": 1795237498698,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-003": {
+      "id": "h-inv-003",
+      "nivel": "Alto",
+      "area": "Energía",
+      "desc": "El inventario anota «sin electricidad» o «sin luz» en 5 equipos.",
+      "acc": "Comprobar el suministro eléctrico y la protección (SAI) de los puestos.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498699,
+      "t": 1795237498699,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    },
+    "fot": {},
+    "eq": {
+     "e-inv-001": {
+      "id": "e-inv-001",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk (generación sin especificar)",
+      "cantidad": "3",
+      "estado": "Sin verificar",
+      "ubic": "Recepcion y administracion, Farmacia, Direccion",
+      "cons": [],
+      "t": 1795237498647,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-002": {
+      "id": "e-inv-002",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Modelo sin especificar",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Recepcion y administracion",
+      "cons": [],
+      "t": 1795237498648,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-003": {
+      "id": "e-inv-003",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet 107a",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Recepcion y administracion",
+      "cons": [],
+      "t": 1795237498649,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-004": {
+      "id": "e-inv-004",
+      "tipo": "Multifunción",
+      "marca": "Dell",
+      "modelo": "2335dn MFP",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Recepcion y administracion",
+      "cons": [],
+      "t": 1795237498650,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    }
+   },
+   "borrado": null
+  },
+  "inv-mongomo-delegacion-provincial": {
+   "id": "inv-mongomo-delegacion-provincial",
+   "f": {
+    "nombre": {
+     "v": "Delegación Provincial de Wele-Nzas (Mongomo)",
+     "t": 1795237498530,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "localidad": {
+     "v": "Mongomo",
+     "t": 1795237498530,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "etapa": {
+     "v": "Región Continental",
+     "t": 1795237498530,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "contingencia": {
+     "v": false,
+     "t": 1795237498530,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "estado": {
+     "v": "Pendiente",
+     "t": 1795237498530,
+     "a": "Inventario D. Regional oct. 2026"
+    }
+   },
+   "L": {
+    "tec": {},
+    "hal": {
+     "h-inv-001": {
+      "id": "h-inv-001",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "27 de 29 equipos sin nombre definitivo o sin número de serie en el inventario.",
+      "acc": "Tomar en la visita el nombre y el número de serie de cada equipo y etiquetarlos.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498700,
+      "t": 1795237498700,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-002": {
+      "id": "h-inv-002",
+      "nivel": "Bajo",
+      "area": "Impresoras",
+      "desc": "15 impresoras o multifunciones sin referencia de consumible en el inventario.",
+      "acc": "Anotar en la visita la referencia del tóner o cartucho de cada una.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498701,
+      "t": 1795237498701,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    },
+    "fot": {},
+    "eq": {
+     "e-inv-001": {
+      "id": "e-inv-001",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Pro 3130 MT",
+      "cantidad": "5",
+      "estado": "Sin verificar",
+      "ubic": "Secretaria, Recursos humanos, Contabilidad, Servicios medicos",
+      "cons": [],
+      "t": 1795237498651,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-002": {
+      "id": "e-inv-002",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro 400",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Secretaria",
+      "cons": [],
+      "t": 1795237498652,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-003": {
+      "id": "e-inv-003",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "OfficeJet 4636",
+      "cantidad": "5",
+      "estado": "Sin verificar",
+      "ubic": "Secretaria, Recursos humanos, Afiliacion, Ctrol de empresas y ctzacion, Servicios medicos",
+      "cons": [],
+      "t": 1795237498653,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-004": {
+      "id": "e-inv-004",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "110 Desktop",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Prestaciones sociales, Contabilidad",
+      "cons": [],
+      "t": 1795237498654,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-005": {
+      "id": "e-inv-005",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet P2055dn",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Prestaciones sociales, Servicios medicos",
+      "cons": [],
+      "t": 1795237498655,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-006": {
+      "id": "e-inv-006",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "Compaq Elite 8300 CMT",
+      "cantidad": "5",
+      "estado": "Sin verificar",
+      "ubic": "Prestaciones sociales, Recursos humanos, Ctrol de empresas y ctzacion, Delegado provincial, Servicios medicos",
+      "cons": [],
+      "t": 1795237498656,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-007": {
+      "id": "e-inv-007",
+      "tipo": "Multifunción",
+      "marca": "Dell",
+      "modelo": "2335dn MFP",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Recursos humanos",
+      "cons": [],
+      "t": 1795237498657,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-008": {
+      "id": "e-inv-008",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk (generación sin especificar)",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Afiliacion, Caja",
+      "cons": [],
+      "t": 1795237498658,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-009": {
+      "id": "e-inv-009",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet P1102",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Ctrol de empresas y ctzacion",
+      "cons": [],
+      "t": 1795237498659,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-010": {
+      "id": "e-inv-010",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet P2035",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Contabilidad",
+      "cons": [],
+      "t": 1795237498660,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-011": {
+      "id": "e-inv-011",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro M501",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Caja",
+      "cons": [],
+      "t": 1795237498661,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-012": {
+      "id": "e-inv-012",
+      "tipo": "Multifunción",
+      "marca": "Brother",
+      "modelo": "MFC-8950DW",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Delegado provincial",
+      "cons": [],
+      "t": 1795237498662,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-013": {
+      "id": "e-inv-013",
+      "tipo": "Multifunción",
+      "marca": "Epson",
+      "modelo": "WorkForce Pro WF-5620",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Delegado provincial",
+      "cons": [],
+      "t": 1795237498663,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-014": {
+      "id": "e-inv-014",
+      "tipo": "Impresora",
+      "marca": "Samsung",
+      "modelo": "ML-1640",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Servicios medicos",
+      "cons": [],
+      "t": 1795237498664,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    }
+   },
+   "borrado": null
+  },
+  "inv-mongomo-centro-social": {
+   "id": "inv-mongomo-centro-social",
+   "f": {
+    "nombre": {
+     "v": "Centro Social de Wele-Nzas (Mongomo)",
+     "t": 1795237498531,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "localidad": {
+     "v": "Mongomo",
+     "t": 1795237498531,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "etapa": {
+     "v": "Región Continental",
+     "t": 1795237498531,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "contingencia": {
+     "v": false,
+     "t": 1795237498531,
+     "a": "Inventario D. Regional oct. 2026"
+    },
+    "estado": {
+     "v": "Pendiente",
+     "t": 1795237498531,
+     "a": "Inventario D. Regional oct. 2026"
+    }
+   },
+   "L": {
+    "tec": {},
+    "hal": {
+     "h-inv-001": {
+      "id": "h-inv-001",
+      "nivel": "Medio",
+      "area": "Equipos",
+      "desc": "7 de 8 equipos sin nombre definitivo o sin número de serie en el inventario.",
+      "acc": "Tomar en la visita el nombre y el número de serie de cada equipo y etiquetarlos.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498702,
+      "t": 1795237498702,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "h-inv-002": {
+      "id": "h-inv-002",
+      "nivel": "Bajo",
+      "area": "Impresoras",
+      "desc": "3 impresoras o multifunciones sin referencia de consumible en el inventario.",
+      "acc": "Anotar en la visita la referencia del tóner o cartucho de cada una.",
+      "resp": "",
+      "limite": "",
+      "estado": "Abierto",
+      "foto": "",
+      "creado": 1795237498703,
+      "t": 1795237498703,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    },
+    "fot": {},
+    "eq": {
+     "e-inv-001": {
+      "id": "e-inv-001",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "110 Desktop",
+      "cantidad": "2",
+      "estado": "Sin verificar",
+      "ubic": "Caja, Administrador-csm",
+      "cons": [],
+      "t": 1795237498665,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-002": {
+      "id": "e-inv-002",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet P2035",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Caja",
+      "cons": [],
+      "t": 1795237498666,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-003": {
+      "id": "e-inv-003",
+      "tipo": "PC de sobremesa",
+      "marca": "HP",
+      "modelo": "ProDesk (generación sin especificar)",
+      "cantidad": "3",
+      "estado": "Sin verificar",
+      "ubic": "Sistema de informacion sanitaria (sis), Secretaria, Direccion",
+      "cons": [],
+      "t": 1795237498667,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-004": {
+      "id": "e-inv-004",
+      "tipo": "Multifunción",
+      "marca": "HP",
+      "modelo": "Color LaserJet Pro MFP M181fw",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Administrador-csm",
+      "cons": [],
+      "t": 1795237498668,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     },
+     "e-inv-005": {
+      "id": "e-inv-005",
+      "tipo": "Impresora",
+      "marca": "HP",
+      "modelo": "LaserJet Pro M501",
+      "cantidad": "1",
+      "estado": "Sin verificar",
+      "ubic": "Direccion",
+      "cons": [],
+      "t": 1795237498669,
+      "a": "Inventario D. Regional oct. 2026",
+      "del": false
+     }
+    }
+   },
+   "borrado": null
+  }
+ },
+ "fotos": []
+}
